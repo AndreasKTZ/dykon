@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# Dykon - Duvet Finder Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En moderne webapplikation bygget med React, TypeScript, Vite og SCSS til at hjælpe brugere med at finde den perfekte dyne.
 
-Currently, two official plugins are available:
+## Kom i gang
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installation
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Kør udviklerserver
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Build til produktion
+
+```bash
+npm run build
+```
+
+## Projekt struktur
+
+Dette projekt følger **Atomic Design** principper:
+
+```
+src/
+├── components/
+│   ├── atoms/          # Basale UI-elementer (buttons, icons, inputs)
+│   ├── molecules/      # Simple kombinationer af atoms
+│   ├── organisms/      # Komplekse komponenter som Navigation
+│   ├── templates/      # Layout strukturer
+│   └── pages/          # Komplette sider
+├── styles/
+│   ├── abstracts/      # Variables, mixins, functions
+│   ├── base/          # Reset, typography
+│   ├── components/    # Komponent-specifikke styles
+│   ├── layout/        # Layout-specifikke styles
+│   └── pages/         # Side-specifikke styles
+├── types/             # TypeScript type definitions
+└── data/              # JSON data filer
+```
+
+## Komponenter
+
+### Navigation
+
+Navigation-komponenten består af:
+
+**Top bar:**
+- Telefon og email kontakt information (venstre)
+- Sprogvælger (højre)
+- Baggrund: #EFECE9
+- 8px padding top/bottom
+
+**Main navigation:**
+- Centreret logo (højde: 50px)
+- Navigation links på begge sider af logo
+- Max bredde: 920px
+- Baggrund: #FFFFFF
+- Border: 1px solid #DAE0E7
+- 18px padding top/bottom
+
+```tsx
+import { Navigation } from './components/organisms/Navigation'
+
+function App() {
+  return <Navigation />
+}
+```
+
+## Farver
+
+Projektet bruger følgende primære farver:
+
+- Primary: `#880338` (ikoner, hover states)
+- Top bar background: `#EFECE9`
+- Top bar text: `#333D43`
+- Navigation links: `#495B66`
+- Navigation background: `#FFFFFF`
+- Navigation border: `#DAE0E7`
+
+## Typografi
+
+Projektet bruger **EB Garamond** som primær font.
+
+## Data flow
+
+1. Duvet data indlæses fra JSON fil i `/data`
+2. Rå data mappes til interne modeller
+3. Bruger besvarer spørgsmål gennem guided flow (3-5 steps)
+4. Svar gemmes i centraliseret state (context eller parent page)
+5. Match score beregnes baseret på præferencer
+6. Filtrerede og sorterede resultater vises
+7. Bruger kan sammenligne op til 2 dyner side-by-side
+
+## Teknologier
+
+- **React 19** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool og dev server
+- **SCSS** - Styling med variables og mixins
+- **Lucide React** - Icon library
