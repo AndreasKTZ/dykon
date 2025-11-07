@@ -3,7 +3,11 @@ import type { ReactNode, ReactElement } from 'react';
 import { ProgressBar } from '../molecules/ProgressBar';
 import { Button } from '../atoms/Button';
 import { IntroScreen } from './IntroScreen';
+import { Results } from './Results';
 import { ArrowLeft, ArrowRight, X } from 'lucide-react';
+import { calculateDuvetMatches } from '../../utils/duvetMatcher';
+import duvetsData from '../../data/duvets.json';
+import type { Duvet } from '../../types/duvet';
 
 interface Step {
   id: string;
@@ -23,6 +27,8 @@ interface StepData {
 export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) => {
   const [currentStepIndex, setCurrentStepIndex] = useState(showIntro ? -1 : 0);
   const [stepData, setStepData] = useState<StepData>({});
+  const [showResults, setShowResults] = useState(false);
+  const [matchedDuvets, setMatchedDuvets] = useState<Duvet[]>([]);
 
   const isIntro = currentStepIndex === -1;
   const currentStep = isIntro ? null : steps[currentStepIndex];
@@ -43,6 +49,8 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
   const goToIntro = () => {
     setCurrentStepIndex(-1);
     setStepData({}); // Reset all collected data
+    setShowResults(false);
+    setMatchedDuvets([]);
   };
 
   const handleStepDataChange = (stepId: string, data: unknown) => {
@@ -162,16 +170,20 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
   return (
     <div className="step-container">
       <div className="step-container__wrapper">
-        <ProgressBar 
-          currentStep={isIntro ? 0 : currentStepIndex + 1}
-          totalSteps={totalSteps}
-          stepTitle={currentStep?.title}
-          customTitle={isIntro ? 'FLORA DANICA — DYNEMATCHER' : undefined}
-          hidePercentage={isIntro}
-        />
+        {!showResults && (
+          <ProgressBar 
+            currentStep={isIntro ? 0 : currentStepIndex + 1}
+            totalSteps={totalSteps}
+            stepTitle={currentStep?.title}
+            customTitle={isIntro ? 'FLORA DANICA — DYNEMATCHER' : undefined}
+            hidePercentage={isIntro}
+          />
+        )}
         
         <div className="step-container__content">
-          {isIntro ? (
+          {showResults ? (
+            <Results duvets={matchedDuvets} onReset={goToIntro} />
+          ) : isIntro ? (
             <IntroScreen 
               onStart={handleStartFromIntro}
               onViewProducts={handleViewProducts}
@@ -181,7 +193,7 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
           )}
         </div>
         
-        {!isIntro && (
+        {!isIntro && !showResults && (
           <div className="step-container__navigation">
             {currentStepIndex === 0 ? (
               <Button 
@@ -217,7 +229,10 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
                 variant="primary"
                 onClick={() => {
                   console.log('Collected data:', stepData);
-                  // Her kan vi senere bruge stepData til at matche duvets
+                  // Kør matching algorithm
+                  const matches = calculateDuvetMatches(duvetsData.duvets as Duvet[], stepData);
+                  setMatchedDuvets(matches);
+                  setShowResults(true);
                 }}
                 icon={<ArrowRight />}
                 disabled={!currentStepComplete}

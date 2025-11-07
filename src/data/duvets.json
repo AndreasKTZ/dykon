@@ -1,0 +1,317 @@
+{
+  "duvets": [
+    {
+      "id": "flora-tusindfryrd-light",
+      "name": "Flora Danica Tusindfryd – Sval, 135x200",
+      "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
+      "price": 1299,
+      "currency": "DKK",
+      "image": "/duvets/tusindfryrd.jpg",
+      "characteristics": {
+        "warmth": "light",
+        "weight": "light",
+        "season": "summer",
+        "filling": "dun",
+        "fillPower": 750,
+        "threadCount": 280
+      },
+      "mood": ["cool", "natural"],
+      "temperature": ["warm", "balanced"],
+      "weightPreference": 25,
+      "seasons": ["summer"],
+      "priceLevel": 1,
+      "features": [
+        "Moskusdun 90% – naturlig lethed og høj bæreevne (750)",
+        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
+        "Sval komfort – ideel til varme nætter og kølige soveværelser",
+        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+      ],
+      "specifications": {
+        "material": "100% bomuld",
+        "filling": "90% hvide gåsedun, 10% fjer",
+        "fillWeight": "450g",
+        "dimensions": {
+          "140x200": true,
+          "140x220": false,
+          "200x200": false,
+          "200x220": false
+        }
+      },
+      "matchingScore": 0
+    },
+    {
+      "id": "flora-tusindfryrd-allseason",
+      "name": "Flora Danica Tusindfryd – Sval, 135x200",
+      "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
+      "price": 1299,
+      "currency": "DKK",
+      "image": "/duvets/tusindfryrd.jpg",
+      "characteristics": {
+        "warmth": "medium",
+        "weight": "medium",
+        "season": "all-year",
+        "filling": "dun",
+        "fillPower": 750,
+        "threadCount": 280
+      },
+      "mood": ["natural", "soft"],
+      "temperature": ["balanced"],
+      "weightPreference": 50,
+      "seasons": ["all-year"],
+      "priceLevel": 1,
+      "features": [
+        "Moskusdun 90% – naturlig lethed og høj bæreevne (750)",
+        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
+        "Sval komfort – ideel til varme nætter og kølige soveværelser",
+        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+      ],
+      "specifications": {
+        "material": "100% bomuld",
+        "filling": "90% hvide gåsedun, 10% fjer",
+        "fillWeight": "650g",
+        "dimensions": {
+          "140x200": true,
+          "140x220": true,
+          "200x200": true,
+          "200x220": true
+        }
+      },
+      "matchingScore": 0
+    },
+    {
+      "id": "flora-tusindfryrd-warm",
+      "name": "Flora Danica Tusindfryd – Sval, 135x200",
+      "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
+      "price": 1299,
+      "currency": "DKK",
+      "image": "/duvets/tusindfryrd.jpg",
+      "characteristics": {
+        "warmth": "warm",
+        "weight": "medium",
+        "season": "winter",
+        "filling": "dun",
+        "fillPower": 750,
+        "threadCount": 280
+      },
+      "mood": ["cozy", "soft"],
+      "temperature": ["cold", "balanced"],
+      "weightPreference": 60,
+      "seasons": ["winter", "all-year"],
+      "priceLevel": 2,
+      "features": [
+        "Moskusdun 90% – naturlig lethed og høj bæreevne (750)",
+        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
+        "Sval komfort – ideel til varme nætter og kølige soveværelser",
+        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+      ],
+      "specifications": {
+        "material": "100% bomuld",
+        "filling": "90% hvide gåsedun, 10% fjer",
+        "fillWeight": "900g",
+        "dimensions": {
+          "140x200": true,
+          "140x220": true,
+          "200x200": true,
+          "200x220": true
+        }
+      },
+      "matchingScore": 0
+    },
+    {
+      "id": "flora-premium-light",
+      "name": "Flora Danica Premium – Let Sommerkomfort",
+      "description": "Eksklusiv sommerdyne med førsteklasses dun til den ultimative kølige komfort.",
+      "price": 2499,
+      "currency": "DKK",
+      "image": "/duvets/premium.jpg",
+      "characteristics": {
+        "warmth": "light",
+        "weight": "light",
+        "season": "summer",
+        "filling": "dun",
+        "fillPower": 850,
+        "threadCount": 320
+      },
+      "mood": ["cool", "natural"],
+      "temperature": ["warm"],
+      "weightPreference": 20,
+      "seasons": ["summer"],
+      "priceLevel": 3,
+      "features": [
+        "Moskusdun 95% – naturlig lethed og høj bæreevne (850)",
+        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
+        "Sval komfort – ideel til varme nætter og kølige soveværelser",
+        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+      ],
+      "specifications": {
+        "material": "100% ægyptisk bomuld",
+        "filling": "95% europæiske hvide gåsedun, 5% fjer",
+        "fillWeight": "400g",
+        "dimensions": {
+          "140x200": true,
+          "140x220": true,
+          "200x200": true,
+          "200x220": true
+        }
+      },
+      "matchingScore": 0
+    },
+    {
+      "id": "flora-premium-allseason",
+      "name": "Flora Danica Premium – Helårsdyne",
+      "description": "Luksuriøs helårsdyne med eksceptionel temperaturregulering til perfekt komfort hele året.",
+      "price": 3299,
+      "currency": "DKK",
+      "image": "/duvets/premium.jpg",
+      "characteristics": {
+        "warmth": "medium",
+        "weight": "medium",
+        "season": "all-year",
+        "filling": "dun",
+        "fillPower": 850,
+        "threadCount": 320
+      },
+      "mood": ["natural", "soft", "cozy"],
+      "temperature": ["balanced"],
+      "weightPreference": 50,
+      "seasons": ["all-year"],
+      "priceLevel": 3,
+      "features": [
+        "Moskusdun 95% – naturlig lethed og høj bæreevne (850)",
+        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
+        "Sval komfort – ideel til varme nætter og kølige soveværelser",
+        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+      ],
+      "specifications": {
+        "material": "100% ægyptisk bomuld",
+        "filling": "95% europæiske hvide gåsedun, 5% fjer",
+        "fillWeight": "700g",
+        "dimensions": {
+          "140x200": true,
+          "140x220": true,
+          "200x200": true,
+          "200x220": true
+        }
+      },
+      "matchingScore": 0
+    },
+    {
+      "id": "flora-classic-balance",
+      "name": "Flora Danica Classic – Naturlig Balance",
+      "description": "Klassisk dansk håndværk med perfekt balance mellem varme og åndbarhed.",
+      "price": 1799,
+      "currency": "DKK",
+      "image": "/duvets/classic.jpg",
+      "characteristics": {
+        "warmth": "medium",
+        "weight": "medium",
+        "season": "all-year",
+        "filling": "dun",
+        "fillPower": 800,
+        "threadCount": 300
+      },
+      "mood": ["natural", "soft"],
+      "temperature": ["balanced"],
+      "weightPreference": 45,
+      "seasons": ["all-year"],
+      "priceLevel": 2,
+      "features": [
+        "Moskusdun 90% – naturlig lethed og høj bæreevne (800)",
+        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
+        "Sval komfort – ideel til varme nætter og kølige soveværelser",
+        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+      ],
+      "specifications": {
+        "material": "100% bomuld",
+        "filling": "90% hvide gåsedun, 10% fjer",
+        "fillWeight": "650g",
+        "dimensions": {
+          "140x200": true,
+          "140x220": true,
+          "200x200": true,
+          "200x220": true
+        }
+      },
+      "matchingScore": 0
+    },
+    {
+      "id": "flora-winter-extra",
+      "name": "Flora Danica Vinter – Ekstra Varm",
+      "description": "Fyldig og omsluttende vinterdyne til kolde nætter med maksimal varme.",
+      "price": 2199,
+      "currency": "DKK",
+      "image": "/duvets/winter.jpg",
+      "characteristics": {
+        "warmth": "extra-warm",
+        "weight": "heavy",
+        "season": "winter",
+        "filling": "dun",
+        "fillPower": 800,
+        "threadCount": 300
+      },
+      "mood": ["cozy", "soft"],
+      "temperature": ["cold"],
+      "weightPreference": 75,
+      "seasons": ["winter"],
+      "priceLevel": 2,
+      "features": [
+        "Moskusdun 90% – naturlig lethed og høj bæreevne (800)",
+        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
+        "Sval komfort – ideel til varme nætter og kølige soveværelser",
+        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+      ],
+      "specifications": {
+        "material": "100% bomuld",
+        "filling": "90% hvide gåsedun, 10% fjer",
+        "fillWeight": "1100g",
+        "dimensions": {
+          "140x200": true,
+          "140x220": true,
+          "200x200": true,
+          "200x220": true
+        }
+      },
+      "matchingScore": 0
+    },
+    {
+      "id": "flora-budget-summer",
+      "name": "Flora Danica Sommer – Lettere Økonomi",
+      "description": "Prisvenlig sommerdyne med klassisk Flora Danica kvalitet.",
+      "price": 999,
+      "currency": "DKK",
+      "image": "/duvets/budget.jpg",
+      "characteristics": {
+        "warmth": "light",
+        "weight": "light",
+        "season": "summer",
+        "filling": "dun",
+        "fillPower": 700,
+        "threadCount": 260
+      },
+      "mood": ["cool", "natural"],
+      "temperature": ["warm", "balanced"],
+      "weightPreference": 30,
+      "seasons": ["summer"],
+      "priceLevel": 1,
+      "features": [
+        "Moskusdun 90% – naturlig lethed og høj bæreevne (700)",
+        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
+        "Sval komfort – ideel til varme nætter og kølige soveværelser",
+        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+      ],
+      "specifications": {
+        "material": "100% bomuld",
+        "filling": "85% hvide gåsedun, 15% fjer",
+        "fillWeight": "400g",
+        "dimensions": {
+          "140x200": true,
+          "140x220": false,
+          "200x200": false,
+          "200x220": false
+        }
+      },
+      "matchingScore": 0
+    }
+  ]
+}
+
