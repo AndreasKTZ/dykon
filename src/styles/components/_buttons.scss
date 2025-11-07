@@ -1,1 +1,75 @@
-// Buttons styles
+.button {
+  font-family: $font-secondary;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 32px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+
+  // Primary variant
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+
+    &:hover:not(:disabled) {
+      background-color: darken($color-primary, 8%);
+      border-color: darken($color-primary, 8%);
+    }
+  }
+
+  // Outline variant
+  &--outline {
+    background-color: transparent;
+    color: $color-text-secondary;
+    border-color: $color-border-light;
+
+    &:hover:not(:disabled) {
+      background-color: $color-background-page;
+    }
+  }
+
+  // Text variant
+  &--text {
+    background-color: transparent;
+    color: $color-text-secondary;
+    border-color: transparent;
+    padding: 12px 16px;
+
+    &:hover:not(:disabled) {
+      color: $color-primary;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+  }
+}

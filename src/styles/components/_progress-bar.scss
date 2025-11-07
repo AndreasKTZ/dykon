@@ -1,0 +1,44 @@
+.progress-bar {
+  margin-bottom: 32px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 20px;
+  }
+
+  &__title {
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 400;
+    color: $color-progress-text;
+    letter-spacing: 0.5px;
+  }
+
+  &__percentage {
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 400;
+    color: $color-progress-text;
+  }
+
+  &__steps {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+  }
+
+  &__step {
+    flex: 1;
+    height: 1px;
+    background-color: $color-progress-empty;
+    transition: background-color 0.3s ease;
+
+    &--completed {
+      background-color: $color-primary;
+    }
+  }
+}
+

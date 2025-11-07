@@ -5,6 +5,9 @@ $color-dark-slate: #333D43;
 $color-slate: #495B66;
 $color-white: #FFFFFF;
 $color-light-gray: #DAE0E7;
+$color-pale-blue: #F6F7F9;
+$color-progress-empty: #CED5DE;
+$color-progress-text: #5E727E;
 
 // Semantic Color Tokens
 $color-primary: $color-burgundy;
@@ -12,10 +15,12 @@ $color-text-primary: $color-dark-slate;
 $color-text-secondary: $color-slate;
 $color-background-light: $color-beige;
 $color-background-white: $color-white;
+$color-background-page: $color-pale-blue;
 $color-border-light: $color-light-gray;
 
 // Typography
 $font-primary: 'EB Garamond', serif;
+$font-secondary: 'Geist', sans-serif;
 
 // Spacing
 $spacing-topbar-vertical: 8px;
@@ -23,6 +28,8 @@ $spacing-nav-vertical: 18px;
 $spacing-nav-gap: 42px;
 $spacing-footer-vertical: 48px;
 $spacing-footer-category-gap: 60px;
+$spacing-container-vertical: 80px;
+$spacing-container-padding: 50px;
 
 // Layout
 $max-width: 1000px;
