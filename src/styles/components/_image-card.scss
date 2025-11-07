@@ -1,0 +1,85 @@
+.image-card {
+  position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 100%);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  &:hover &__overlay,
+  &--selected &__overlay {
+    opacity: 1;
+  }
+
+  &__label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $color-white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: $font-secondary;
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-text-primary;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    color: $color-primary;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &--selected {
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 3px solid $color-primary;
+      border-radius: 8px;
+      pointer-events: none;
+    }
+  }
+}
+

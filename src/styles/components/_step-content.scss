@@ -1,0 +1,26 @@
+.step-content {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__item {
+    background-color: $color-background-white;
+    border: 1px solid $color-border-light;
+    border-radius: 8px;
+    padding: $spacing-container-padding;
+
+    // Remove container styling from child components when wrapped
+    > .range-slider,
+    > .points-arranger,
+    > .option-boxes,
+    > .image-selection {
+      background-color: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+    }
+  }
+}
+

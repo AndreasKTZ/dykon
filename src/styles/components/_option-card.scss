@@ -1,0 +1,63 @@
+.option-card {
+  background-color: $color-background-white;
+  border: 1px solid $color-border-light;
+  border-radius: 8px;
+  padding: 32px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 4px 12px rgba(136, 3, 56, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #79B1E0;
+
+    svg {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: 24px;
+    font-weight: 400;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: $font-primary;
+    font-size: 16px;
+    font-weight: 400;
+    color: $color-text-secondary;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  &--selected {
+    border-color: $color-primary;
+    background-color: rgba(136, 3, 56, 0.02);
+    box-shadow: 0 4px 12px rgba(136, 3, 56, 0.15);
+  }
+}
+
