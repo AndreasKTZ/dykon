@@ -5,6 +5,7 @@ import { ImageSelection } from './components/molecules/ImageSelection'
 import { OptionBoxes } from './components/molecules/OptionBoxes'
 import { RangeSlider } from './components/molecules/RangeSlider'
 import { PointsArranger } from './components/molecules/PointsArranger'
+import { AudioProvider } from './contexts/AudioContext'
 import { Snowflake, CloudRain, Sun, Feather, DollarSign, Award } from 'lucide-react'
 import './styles/main.scss'
 
@@ -17,6 +18,7 @@ function App() {
         <ImageSelection
           title="Hvilket rum ville du helst sove i?"
           subtitle="Forestil dig dit ideelle soveværelse – hvordan føles det, når du går i seng?"
+          stepId="stemning"
           options={[
             { id: 'cool', image: '/rooms/breeze.png', label: 'Kølig brise', icon: <Snowflake size={16} /> },
             { id: 'natural', image: '/rooms/balance.png', label: 'Naturlig balance', icon: <Feather size={16} /> },
@@ -33,6 +35,7 @@ function App() {
         <OptionBoxes
           title="Hvordan føles dit soveværelse om natten?"
           subtitle="Søvnkomfort handler også om temperaturen i dit soveværelse."
+          stepId="temperatur"
           options={[
             { id: 'cold', icon: <Snowflake />, title: 'Har det koldt', description: 'Brug for ekstra varme' },
             { id: 'balanced', icon: <CloudRain />, title: 'Helt tilpas', description: 'Komfortabel fleste nætter' },
@@ -60,6 +63,7 @@ function App() {
         <OptionBoxes
           title="Hvilken sæson leder du efter dyne til?"
           subtitle="Lad os finde den perfekte dyne til årstiden."
+          stepId="sæson"
           options={[
             { id: 'summer', icon: <Sun />, title: 'Sommer', description: 'Til varme nætter' },
             { id: 'all-year', icon: <CloudRain />, title: 'Hele året', description: 'Komfort året rundt' },
@@ -102,13 +106,15 @@ function App() {
   ];
 
   return (
-    <div>
-      <Navigation />
-      <main>
-        <StepContainer steps={steps} />
-      </main>
-      <Footer />
-    </div>
+    <AudioProvider>
+      <div>
+        <Navigation />
+        <main>
+          <StepContainer steps={steps} />
+        </main>
+        <Footer />
+      </div>
+    </AudioProvider>
   )
 }
 

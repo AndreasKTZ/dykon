@@ -2,7 +2,8 @@ import { useState } from 'react';
 import type { ReactNode } from 'react';
 import { ProgressBar } from '../molecules/ProgressBar';
 import { Button } from '../atoms/Button';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { IntroScreen } from './IntroScreen';
+import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 
 interface Step {
   id: string;
@@ -12,13 +13,15 @@ interface Step {
 
 interface StepContainerProps {
   steps: Step[];
+  showIntro?: boolean;
 }
 
-export const StepContainer = ({ steps }: StepContainerProps) => {
-  const [currentStepIndex, setCurrentStepIndex] = useState(0);
+export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) => {
+  const [currentStepIndex, setCurrentStepIndex] = useState(showIntro ? -1 : 0);
   const [, setStepData] = useState<Record<string, unknown>>({});
 
-  const currentStep = steps[currentStepIndex];
+  const isIntro = currentStepIndex === -1;
+  const currentStep = isIntro ? null : steps[currentStepIndex];
   const totalSteps = steps.length;
 
   const goToNextStep = () => {
@@ -33,51 +36,84 @@ export const StepContainer = ({ steps }: StepContainerProps) => {
     }
   };
 
+  const goToIntro = () => {
+    setCurrentStepIndex(-1);
+  };
+
   // saveStepData funktion kan tilføjes her senere til at gemme step data
+
+  const handleStartFromIntro = () => {
+    setCurrentStepIndex(0);
+  };
+
+  const handleViewProducts = () => {
+    // Navigate til produktside
+    window.location.href = '/dyner';
+  };
 
   return (
     <div className="step-container">
       <div className="step-container__wrapper">
         <ProgressBar 
-          currentStep={currentStepIndex + 1}
+          currentStep={isIntro ? 0 : currentStepIndex + 1}
           totalSteps={totalSteps}
-          stepTitle={currentStep.title}
+          stepTitle={currentStep?.title}
+          customTitle={isIntro ? 'FLORA DANICA — DYNEMATCHER' : undefined}
+          hidePercentage={isIntro}
         />
         
         <div className="step-container__content">
-          {currentStep.content}
+          {isIntro ? (
+            <IntroScreen 
+              onStart={handleStartFromIntro}
+              onViewProducts={handleViewProducts}
+            />
+          ) : (
+            currentStep?.content
+          )}
         </div>
         
-        <div className="step-container__navigation">
-          {currentStepIndex > 0 && (
-            <Button 
-              variant="outline"
-              onClick={goToPreviousStep}
-              icon={<ArrowLeft />}
-              iconPosition="left"
-            >
-              Tilbage
-            </Button>
-          )}
-          
-          {currentStepIndex < totalSteps - 1 ? (
-            <Button 
-              variant="primary"
-              onClick={goToNextStep}
-              icon={<ArrowRight />}
-            >
-              Næste trin
-            </Button>
-          ) : (
-            <Button 
-              variant="primary"
-              onClick={() => console.log('Submit')}
-              icon={<ArrowRight />}
-            >
-              Se resultat
-            </Button>
-          )}
-        </div>
+        {!isIntro && (
+          <div className="step-container__navigation">
+            {currentStepIndex === 0 ? (
+              <Button 
+                variant="outline"
+                icon={<X />}
+                iconPosition="left"
+                onClick={goToIntro}
+              >
+                Afslut
+              </Button>
+            ) : (
+              <Button 
+                variant="outline"
+                onClick={goToPreviousStep}
+                icon={<ArrowLeft />}
+                iconPosition="left"
+              >
+                Tilbage
+              </Button>
+            )}
+            
+            {currentStepIndex < totalSteps - 1 ? (
+              <Button 
+                variant="primary"
+                onClick={goToNextStep}
+                icon={<ArrowRight />}
+              >
+                Næste trin
+              </Button>
+            ) : (
+              <Button 
+                variant="primary"
+                onClick={() => console.log('Submit')}
+                icon={<ArrowRight />}
+              >
+                Se resultat
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { Button } from '../atoms/Button';
-import { Volume2 } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
+import { useAudio } from '../../contexts/AudioContext';
 
 interface RangeSliderProps {
   title: string;
@@ -28,6 +29,7 @@ export const RangeSlider = ({
   const [value, setValue] = useState(defaultValue);
   const [isDragging, setIsDragging] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
+  const { isEnabled, toggleAudio } = useAudio();
 
   const percentage = ((value - min) / (max - min)) * 100;
 
@@ -123,11 +125,11 @@ export const RangeSlider = ({
           {showAudioButton && (
             <Button 
               variant="outline" 
-              icon={<Volume2 />}
+              icon={isEnabled ? <Volume2 /> : <VolumeX />}
               iconPosition="left"
-              onClick={() => console.log('Toggle sound')}
+              onClick={toggleAudio}
             >
-              Slå lyd til
+              {isEnabled ? 'Slå lyd fra' : 'Slå lyd til'}
             </Button>
           )}
         </div>

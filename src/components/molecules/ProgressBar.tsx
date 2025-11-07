@@ -1,19 +1,32 @@
 interface ProgressBarProps {
   currentStep: number;
   totalSteps: number;
-  stepTitle: string;
+  stepTitle?: string;
+  customTitle?: string;
+  hidePercentage?: boolean;
 }
 
-export const ProgressBar = ({ currentStep, totalSteps, stepTitle }: ProgressBarProps) => {
+export const ProgressBar = ({ 
+  currentStep, 
+  totalSteps, 
+  stepTitle, 
+  customTitle,
+  hidePercentage = false 
+}: ProgressBarProps) => {
   const percentage = Math.round((currentStep / totalSteps) * 100);
+  
+  const displayTitle = customTitle || 
+    (stepTitle ? `TRIN ${currentStep} AF ${totalSteps} — ${stepTitle.toUpperCase()}` : '');
 
   return (
     <div className="progress-bar">
       <div className="progress-bar__header">
         <span className="progress-bar__title">
-          TRIN {currentStep} AF {totalSteps} — {stepTitle.toUpperCase()}
+          {displayTitle}
         </span>
-        <span className="progress-bar__percentage">{percentage}%</span>
+        {!hidePercentage && (
+          <span className="progress-bar__percentage">{percentage}%</span>
+        )}
       </div>
       <div 
         className="progress-bar__steps"
@@ -21,7 +34,7 @@ export const ProgressBar = ({ currentStep, totalSteps, stepTitle }: ProgressBarP
         aria-valuenow={percentage}
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-label={`Trin ${currentStep} af ${totalSteps}`}
+        aria-label={customTitle || `Trin ${currentStep} af ${totalSteps}`}
       >
         {Array.from({ length: totalSteps }).map((_, index) => (
           <div

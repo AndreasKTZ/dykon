@@ -2,7 +2,8 @@ import { useState } from 'react';
 import type { ReactNode } from 'react';
 import { OptionCard } from '../atoms/OptionCard';
 import { Button } from '../atoms/Button';
-import { Volume2 } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
+import { useAudio } from '../../contexts/AudioContext';
 
 interface Option {
   id: string;
@@ -17,14 +18,20 @@ interface OptionBoxesProps {
   options: Option[];
   onSelect?: (id: string) => void;
   showAudioButton?: boolean;
+  stepId?: string;
 }
 
-export const OptionBoxes = ({ title, subtitle, options, onSelect, showAudioButton = true }: OptionBoxesProps) => {
+export const OptionBoxes = ({ title, subtitle, options, onSelect, showAudioButton = true, stepId }: OptionBoxesProps) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const { isEnabled, toggleAudio, updateSoundFromChoice } = useAudio();
 
   const handleSelect = (id: string) => {
     setSelectedId(id);
     onSelect?.(id);
+    
+    if (stepId) {
+      updateSoundFromChoice(stepId, id);
+    }
   };
 
   return (
@@ -38,11 +45,11 @@ export const OptionBoxes = ({ title, subtitle, options, onSelect, showAudioButto
           {showAudioButton && (
             <Button 
               variant="outline" 
-              icon={<Volume2 />}
+              icon={isEnabled ? <Volume2 /> : <VolumeX />}
               iconPosition="left"
-              onClick={() => console.log('Toggle sound')}
+              onClick={toggleAudio}
             >
-              Slå lyd til
+              {isEnabled ? 'Slå lyd fra' : 'Slå lyd til'}
             </Button>
           )}
         </div>
