@@ -1,10 +1,18 @@
-// Colors
-$color-primary: #880338;
-$color-topbar-bg: #EFECE9;
-$color-topbar-text: #333D43;
-$color-nav-links: #495B66;
-$color-nav-bg: #FFFFFF;
-$color-nav-border: #DAE0E7;
+// Base Colors
+$color-burgundy: #880338;
+$color-beige: #EFECE9;
+$color-dark-slate: #333D43;
+$color-slate: #495B66;
+$color-white: #FFFFFF;
+$color-light-gray: #DAE0E7;
+
+// Semantic Color Tokens
+$color-primary: $color-burgundy;
+$color-text-primary: $color-dark-slate;
+$color-text-secondary: $color-slate;
+$color-background-light: $color-beige;
+$color-background-white: $color-white;
+$color-border-light: $color-light-gray;
 
 // Typography
 $font-primary: 'EB Garamond', serif;
@@ -13,6 +21,8 @@ $font-primary: 'EB Garamond', serif;
 $spacing-topbar-vertical: 8px;
 $spacing-nav-vertical: 18px;
 $spacing-nav-gap: 42px;
+$spacing-footer-vertical: 48px;
+$spacing-footer-category-gap: 60px;
 
 // Layout
-$max-width-nav: 1000px;
+$max-width: 1000px;

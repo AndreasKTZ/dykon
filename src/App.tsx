@@ -1,4 +1,5 @@
 import { Navigation } from './components/organisms/Navigation'
+import { Footer } from './components/organisms/Footer'
 import './styles/main.scss'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <main>
         <h1>Dykon</h1>
       </main>
+      <Footer />
     </div>
   )
 }

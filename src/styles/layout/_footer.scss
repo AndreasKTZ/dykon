@@ -1,1 +1,171 @@
-// Footer styles
+.footer {
+  font-family: $font-primary;
+  background-color: $color-background-white;
+  border-top: 1px solid $color-border-light;
+
+  // Main section
+  &__main {
+    padding: $spacing-footer-vertical 0;
+  }
+
+  &__main-content {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    align-self: flex-start;
+  }
+
+  &__business-info {
+    font-style: normal;
+    color: $color-text-secondary;
+    font-size: 16px;
+    line-height: 1.6;
+
+    p {
+      margin: 0 0 8px 0;
+    }
+
+    a {
+      color: $color-text-secondary;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    gap: $spacing-footer-category-gap;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  &__category {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__category-title {
+    font-size: 24px;
+    font-weight: 400;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      color: $color-text-secondary;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 400;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-primary;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &__certifications {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__certifications-image {
+    width: auto;
+    max-width: 200px;
+    height: auto;
+  }
+
+  // Bottom section
+  &__bottom {
+    border-top: 1px solid $color-border-light;
+    padding: 24px 0;
+  }
+
+  &__bottom-content {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    @include mobile {
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
+    }
+  }
+
+  &__copyright {
+    margin: 0;
+    font-size: 14px;
+    color: $color-text-secondary;
+  }
+
+  &__privacy {
+    font-size: 14px;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+  }
+}
