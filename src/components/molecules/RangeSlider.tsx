@@ -10,9 +10,11 @@ interface RangeSliderProps {
   rightLabel: string;
   min?: number;
   max?: number;
+  value?: number;
   defaultValue?: number;
   onChange?: (value: number) => void;
   showAudioButton?: boolean;
+  stepId?: string;
 }
 
 export const RangeSlider = ({
@@ -22,15 +24,18 @@ export const RangeSlider = ({
   rightLabel,
   min = 0,
   max = 100,
+  value: controlledValue,
   defaultValue = 50,
   onChange,
   showAudioButton = true
 }: RangeSliderProps) => {
-  const [value, setValue] = useState(defaultValue);
+  const [internalValue, setInternalValue] = useState(defaultValue);
   const [isDragging, setIsDragging] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const { isEnabled, toggleAudio } = useAudio();
 
+  // Use controlled value if provided, otherwise use internal state
+  const value = controlledValue !== undefined ? controlledValue : internalValue;
   const percentage = ((value - min) / (max - min)) * 100;
 
   const updateValue = useCallback((clientX: number) => {
@@ -41,7 +46,7 @@ export const RangeSlider = ({
     const percent = x / rect.width;
     const newValue = Math.round(min + percent * (max - min));
     
-    setValue(newValue);
+    setInternalValue(newValue);
     onChange?.(newValue);
   }, [min, max, onChange]);
 
@@ -110,7 +115,7 @@ export const RangeSlider = ({
     }
 
     e.preventDefault();
-    setValue(newValue);
+    setInternalValue(newValue);
     onChange?.(newValue);
   };
 

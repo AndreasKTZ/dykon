@@ -16,17 +16,32 @@ interface OptionBoxesProps {
   title: string;
   subtitle?: string;
   options: Option[];
+  value?: string | null;
+  onChange?: (id: string) => void;
   onSelect?: (id: string) => void;
   showAudioButton?: boolean;
   stepId?: string;
 }
 
-export const OptionBoxes = ({ title, subtitle, options, onSelect, showAudioButton = true, stepId }: OptionBoxesProps) => {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+export const OptionBoxes = ({ 
+  title, 
+  subtitle, 
+  options, 
+  value,
+  onChange,
+  onSelect, 
+  showAudioButton = true, 
+  stepId 
+}: OptionBoxesProps) => {
+  const [internalSelectedId, setInternalSelectedId] = useState<string | null>(null);
   const { isEnabled, toggleAudio, updateSoundFromChoice } = useAudio();
 
+  // Use controlled value if provided, otherwise use internal state
+  const selectedId = value !== undefined ? value : internalSelectedId;
+
   const handleSelect = (id: string) => {
-    setSelectedId(id);
+    setInternalSelectedId(id);
+    onChange?.(id);
     onSelect?.(id);
     
     if (stepId) {

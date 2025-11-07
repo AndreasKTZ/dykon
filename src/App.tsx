@@ -53,6 +53,7 @@ function App() {
           subtitle="Nogle elsker følelsen af en tung dyne, mens andre foretrækker en let og luftig følelse."
           leftLabel="Let og luftig"
           rightLabel="Fyldig og omsluttende"
+          stepId="vægt-fylde"
         />
       )
     },
@@ -83,6 +84,7 @@ function App() {
               subtitle="Hvor ligger du prismæssigt, når du køber en dyne?"
               leftLabel="BUDGET ($)"
               rightLabel="LUKSUS ($$$)"
+              stepId="budget-price"
             />
           </div>
           <div className="step-content__item">
@@ -90,6 +92,7 @@ function App() {
               title="Hvad betyder mest for dig?"
               subtitle="Fordel dine 10 point på det, der betyder mest for dig."
               totalPoints={10}
+              stepId="budget-priorities"
               options={[
                 { id: 'comfort', icon: <Feather />, label: 'Komfort' },
                 { id: 'temperature', icon: <Sun />, label: 'Temperatur' },
