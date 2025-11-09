@@ -33,13 +33,13 @@ function App() {
       title: 'Temperatur',
       content: (
         <OptionBoxes
-          title="Hvordan føles dit soveværelse om natten?"
-          subtitle="Søvnkomfort handler også om temperaturen i dit soveværelse."
+          title="Hvordan har du det bedst, når du skal sove?"
+          subtitle="Nogle kan bedst lide frisk luft, andre foretrækker at have det lunt og trygt."
           stepId="temperatur"
           options={[
-            { id: 'cold', icon: <Snowflake />, title: 'Har det koldt', description: 'Brug for ekstra varme' },
-            { id: 'balanced', icon: <CloudRain />, title: 'Helt tilpas', description: 'Komfortabel fleste nætter' },
-            { id: 'warm', icon: <Sun />, title: 'Har det varmt', description: 'Brug for kølig dyne' }
+            { id: 'cool', icon: <Snowflake />, title: 'Frisk og køligt', description: 'Foretrækker en køligere søvn' },
+            { id: 'moderate', icon: <CloudRain />, title: 'Behageligt tempereret', description: 'Neutral og afbalanceret' },
+            { id: 'warm', icon: <Sun />, title: 'Lunt og varmt', description: 'Foretrækker god varme' }
           ]}
         />
       )

@@ -1,4 +1,4 @@
-import type { Duvet } from '../types/duvet';
+import type { Duvet, TemperaturePreference } from '../types/duvet';
 
 interface StepData {
   [stepId: string]: unknown;
@@ -17,7 +17,7 @@ interface PriorityWeights {
 export function calculateDuvetMatches(duvets: Duvet[], stepData: StepData): Duvet[] {
   // Udtræk brugerens svar
   const userMood = stepData['stemning'] as string | undefined;
-  const userTemperature = stepData['temperatur'] as string | undefined;
+  const userTemperature = stepData['temperatur'] as TemperaturePreference | undefined;
   const userWeightPreference = (stepData['vægt-fylde'] as number) || 50;
   const userSeason = stepData['sæson'] as string | undefined;
   const userBudgetLevel = (stepData['budget-price'] as number) || 50;

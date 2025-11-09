@@ -16,7 +16,7 @@
         "threadCount": 280
       },
       "mood": ["cool", "natural"],
-      "temperature": ["warm", "balanced"],
+      "temperature": ["cool", "moderate"],
       "weightPreference": 25,
       "seasons": ["summer"],
       "priceLevel": 1,
@@ -55,7 +55,7 @@
         "threadCount": 280
       },
       "mood": ["natural", "soft"],
-      "temperature": ["balanced"],
+      "temperature": ["moderate"],
       "weightPreference": 50,
       "seasons": ["all-year"],
       "priceLevel": 1,
@@ -94,7 +94,7 @@
         "threadCount": 280
       },
       "mood": ["cozy", "soft"],
-      "temperature": ["cold", "balanced"],
+      "temperature": ["warm", "moderate"],
       "weightPreference": 60,
       "seasons": ["winter", "all-year"],
       "priceLevel": 2,
@@ -133,7 +133,7 @@
         "threadCount": 320
       },
       "mood": ["cool", "natural"],
-      "temperature": ["warm"],
+      "temperature": ["cool"],
       "weightPreference": 20,
       "seasons": ["summer"],
       "priceLevel": 3,
@@ -172,7 +172,7 @@
         "threadCount": 320
       },
       "mood": ["natural", "soft", "cozy"],
-      "temperature": ["balanced"],
+      "temperature": ["moderate"],
       "weightPreference": 50,
       "seasons": ["all-year"],
       "priceLevel": 3,
@@ -211,7 +211,7 @@
         "threadCount": 300
       },
       "mood": ["natural", "soft"],
-      "temperature": ["balanced"],
+      "temperature": ["moderate"],
       "weightPreference": 45,
       "seasons": ["all-year"],
       "priceLevel": 2,
@@ -250,7 +250,7 @@
         "threadCount": 300
       },
       "mood": ["cozy", "soft"],
-      "temperature": ["cold"],
+      "temperature": ["warm"],
       "weightPreference": 75,
       "seasons": ["winter"],
       "priceLevel": 2,
@@ -289,7 +289,7 @@
         "threadCount": 260
       },
       "mood": ["cool", "natural"],
-      "temperature": ["warm", "balanced"],
+      "temperature": ["cool", "moderate"],
       "weightPreference": 30,
       "seasons": ["summer"],
       "priceLevel": 1,

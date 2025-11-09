@@ -18,9 +18,9 @@ export const Navigation = () => {
               <Phone size={16} />
               <span>+45 76 84 03 00</span>
             </a>
-            <a href="mailto:info@horadanicadyner.dk" className="navigation__topbar-link">
+            <a href="mailto:info@floradanicadyner.dk" className="navigation__topbar-link">
               <Mail size={16} />
-              <span>info@horadanicadyner.dk</span>
+              <span>info@floradanicadyner.dk</span>
             </a>
           </div>
           <div className="navigation__topbar-right">
@@ -39,7 +39,7 @@ export const Navigation = () => {
           <ul className="navigation__links navigation__links--left">
             <li><a href="/dyner">Dyner</a></li>
             <li><a href="/puder">Puder</a></li>
-            <li><a href="/find-butik">Find butik</a></li>
+            <li><a href="https://floradanicadyner.dk/find-butik/" target="_blank" rel="noopener noreferrer">Find butik</a></li>
           </ul>
 
           <a href="/" className="navigation__logo">
@@ -52,8 +52,8 @@ export const Navigation = () => {
 
           <ul className="navigation__links navigation__links--right">
             <li><a href="/gode-raad">Gode råd</a></li>
-            <li><a href="/om-os">Om os</a></li>
-            <li><a href="/kontakt">Kontakt</a></li>
+            <li><a href="https://floradanicadyner.dk/om-flora-danica/" target="_blank" rel="noopener noreferrer">Om os</a></li>
+            <li><a href="https://floradanicadyner.dk/kontakt/" target="_blank" rel="noopener noreferrer">Kontakt</a></li>
           </ul>
 
           {/* Mobile hamburger menu */}
@@ -73,10 +73,10 @@ export const Navigation = () => {
             <ul className="navigation__mobile-links">
               <li><a href="/dyner" onClick={toggleMobileMenu}>Dyner</a></li>
               <li><a href="/puder" onClick={toggleMobileMenu}>Puder</a></li>
-              <li><a href="/find-butik" onClick={toggleMobileMenu}>Find butik</a></li>
+              <li><a href="https://floradanicadyner.dk/find-butik/" onClick={toggleMobileMenu}>Find butik</a></li>
               <li><a href="/gode-raad" onClick={toggleMobileMenu}>Gode råd</a></li>
-              <li><a href="/om-os" onClick={toggleMobileMenu}>Om os</a></li>
-              <li><a href="/kontakt" onClick={toggleMobileMenu}>Kontakt</a></li>
+              <li><a href="https://floradanicadyner.dk/om-flora-danica/" onClick={toggleMobileMenu}>Om os</a></li>
+              <li><a href="https://floradanicadyner.dk/kontakt/" onClick={toggleMobileMenu}>Kontakt</a></li>
             </ul>
             <div className="navigation__mobile-language">
               <button className="navigation__mobile-language-btn" aria-label="Vælg sprog">

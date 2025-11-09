@@ -3,6 +3,7 @@
 export type WarmthLevel = 'light' | 'medium' | 'warm' | 'extra-warm';
 export type SeasonType = 'summer' | 'all-year' | 'winter' | '4-season';
 export type FillingType = 'dun' | 'fjer' | 'blanding';
+export type TemperaturePreference = 'cool' | 'moderate' | 'warm';
 
 export interface DuvetCharacteristics {
   warmth: WarmthLevel;
@@ -36,7 +37,7 @@ export interface Duvet {
   image: string;
   characteristics: DuvetCharacteristics;
   mood: string[];
-  temperature: string[];
+  temperature: TemperaturePreference[];
   weightPreference: number;
   seasons: SeasonType[];
   priceLevel: number;

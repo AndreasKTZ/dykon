@@ -25,20 +25,20 @@ export const Footer = () => {
             <div className="footer__category">
               <h3 className="footer__category-title">Information</h3>
               <ul className="footer__links">
-                <li><a href="/find-butik">Find butik</a></li>
-                <li><a href="/om-os">Om os</a></li>
+                <li><a href="https://floradanicadyner.dk/find-butik/" target="_blank" rel="noopener noreferrer">Find butik</a></li>
+                <li><a href="https://floradanicadyner.dk/om-flora-danica/" target="_blank" rel="noopener noreferrer">Om os</a></li>
                 <li><a href="/gode-raad">Gode råd</a></li>
-                <li><a href="/kontakt">Kontakt</a></li>
+                <li><a href="https://floradanicadyner.dk/kontakt/" target="_blank" rel="noopener noreferrer">Kontakt</a></li>
               </ul>
             </div>
 
             <div className="footer__category">
               <h3 className="footer__category-title">Gode råd</h3>
               <ul className="footer__links">
-                <li><a href="/sovn-og-dognrytme">Søvn og døgnrytme</a></li>
-                <li><a href="/vedligeholdelse-og-vask">Vedligeholdelse og vask</a></li>
-                <li><a href="/valg-den-rigtige-dyne">Vælg den rigtige dyne</a></li>
-                <li><a href="/ofte-stillede-sporgsmal">Ofte stillede spørgsmål</a></li>
+                <li><a href="https://floradanicadyner.dk/soevnrytme/" target="_blank" rel="noopener noreferrer">Søvn og døgnrytme</a></li>
+                <li><a href="https://floradanicadyner.dk/vedligeholdelse/" target="_blank" rel="noopener noreferrer">Vedligeholdelse og vask</a></li>
+                <li><a href="https://floradanicadyner.dk/vaelg-den-rigtige-dyne/" target="_blank" rel="noopener noreferrer">Vælg den rigtige dyne</a></li>
+                <li><a href="https://floradanicadyner.dk/faq/" target="_blank" rel="noopener noreferrer">Ofte stillede spørgsmål</a></li>
               </ul>
             </div>
 
