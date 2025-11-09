@@ -231,6 +231,17 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
                   console.log('Collected data:', stepData);
                   // Kør matching algorithm
                   const matches = calculateDuvetMatches(duvetsData.duvets as Duvet[], stepData);
+                  
+                  // Log top duvets og deres scores
+                  console.log('=== TOP DUVET MATCHES ===');
+                  matches.slice(0, 4).forEach((duvet, index) => {
+                    console.log(`${index + 1}. ${duvet.name}`);
+                    console.log(`   Score: ${duvet.matchingScore}`);
+                    console.log(`   Price: ${duvet.price} kr`);
+                    console.log(`   Warmth: ${duvet.characteristics.warmth}, Season: ${duvet.characteristics.season}`);
+                    console.log('---');
+                  });
+                  
                   setMatchedDuvets(matches);
                   setShowResults(true);
                 }}

@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Button } from '../atoms/Button';
 import { CheckCircle2, ArrowRight, RotateCcw } from 'lucide-react';
+import { ComparisonBar } from './ComparisonBar';
 import type { Duvet } from '../../types/duvet';
 
 interface ResultsProps {
@@ -10,16 +12,13 @@ interface ResultsProps {
 interface DuvetCardProps {
   duvet: Duvet;
   isFeatured?: boolean;
+  isSelected?: boolean;
+  onCompareClick: () => void;
 }
 
-const DuvetCard = ({ duvet, isFeatured = false }: DuvetCardProps) => {
+const DuvetCard = ({ duvet, isFeatured = false, isSelected = false, onCompareClick }: DuvetCardProps) => {
   const handleProductClick = () => {
     window.open('https://jysk.dk/brands/flora-danica', '_blank', 'noopener,noreferrer');
-  };
-
-  const handleCompareClick = () => {
-    console.log('Compare duvet:', duvet.id);
-    // Sammenlign funktionalitet kommer senere
   };
 
   return (
@@ -63,9 +62,10 @@ const DuvetCard = ({ duvet, isFeatured = false }: DuvetCardProps) => {
             </Button>
             <Button 
               variant="outline"
-              onClick={handleCompareClick}
+              onClick={onCompareClick}
+              disabled={isSelected}
             >
-              Sammenlign
+              {isSelected ? 'Valgt' : 'Sammenlign'}
             </Button>
           </div>
         </div>
@@ -75,53 +75,96 @@ const DuvetCard = ({ duvet, isFeatured = false }: DuvetCardProps) => {
 };
 
 export const Results = ({ duvets, onReset }: ResultsProps) => {
+  const [selectedForComparison, setSelectedForComparison] = useState<(Duvet | null)[]>([null, null]);
+
   const bestMatch = duvets[0];
   const alternatives = duvets.slice(1, 4);
 
+  const handleCompareClick = (duvet: Duvet) => {
+    // Find første ledige slot
+    const firstEmptyIndex = selectedForComparison.findIndex(d => d === null);
+    if (firstEmptyIndex !== -1) {
+      const newSelected = [...selectedForComparison];
+      newSelected[firstEmptyIndex] = duvet;
+      setSelectedForComparison(newSelected);
+    }
+  };
+
+  const handleRemoveFromComparison = (index: number) => {
+    const newSelected = [...selectedForComparison];
+    newSelected[index] = null;
+    setSelectedForComparison(newSelected);
+  };
+
+  const isDuvetSelected = (duvet: Duvet) => {
+    return selectedForComparison.some(d => d?.id === duvet.id);
+  };
+
+  const hasAnySelection = selectedForComparison.some(d => d !== null);
+
   return (
-    <div className="results">
-      <div className="results__header">
-        <CheckCircle2 size={48} className="results__header-icon" />
-        <h1 className="results__title">Din ideelle dyne er fundet!</h1>
-        <p className="results__subtitle">
-          Vi har matchet dig med den Flora Danica dyne, der passer perfekt til dine præferencer.
-        </p>
-      </div>
-
-      {bestMatch && (
-        <div className="results__best-match">
-          <DuvetCard duvet={bestMatch} isFeatured={true} />
+    <>
+      <div className="results">
+        <div className="results__header">
+          <CheckCircle2 size={48} className="results__header-icon" />
+          <h1 className="results__title">Din ideelle dyne er fundet!</h1>
+          <p className="results__subtitle">
+            Vi har matchet dig med den Flora Danica dyne, der passer perfekt til dine præferencer.
+          </p>
         </div>
-      )}
 
-      {alternatives.length > 0 && (
-        <div className="results__alternatives">
-          <h2 className="results__alternatives-title">ALTERNATIVE VALG</h2>
-          <div className="results__alternatives-grid">
-            {alternatives.map((duvet) => (
-              <DuvetCard key={duvet.id} duvet={duvet} />
-            ))}
+        {bestMatch && (
+          <div className="results__best-match">
+            <DuvetCard 
+              duvet={bestMatch} 
+              isFeatured={true}
+              isSelected={isDuvetSelected(bestMatch)}
+              onCompareClick={() => handleCompareClick(bestMatch)}
+            />
           </div>
-        </div>
-      )}
+        )}
 
-      <div className="results__actions">
-        <Button 
-          variant="outline" 
-          icon={<RotateCcw />}
-          iconPosition="left"
-          onClick={onReset}
-        >
-          Start forfra
-        </Button>
-        <Button 
-          variant="text"
-          onClick={() => window.open('https://jysk.dk/brands/flora-danica', '_blank', 'noopener,noreferrer')}
-        >
-          Se alle produkter
-        </Button>
+        {alternatives.length > 0 && (
+          <div className="results__alternatives">
+            <h2 className="results__alternatives-title">ALTERNATIVE VALG</h2>
+            <div className="results__alternatives-grid">
+              {alternatives.map((duvet) => (
+                <DuvetCard 
+                  key={duvet.id} 
+                  duvet={duvet}
+                  isSelected={isDuvetSelected(duvet)}
+                  onCompareClick={() => handleCompareClick(duvet)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="results__actions">
+          <Button 
+            variant="outline" 
+            icon={<RotateCcw />}
+            iconPosition="left"
+            onClick={onReset}
+          >
+            Start forfra
+          </Button>
+          <Button 
+            variant="text"
+            onClick={() => window.open('https://jysk.dk/brands/flora-danica', '_blank', 'noopener,noreferrer')}
+          >
+            Se alle produkter
+          </Button>
+        </div>
       </div>
-    </div>
+
+      {hasAnySelection && (
+        <ComparisonBar
+          selectedDuvets={selectedForComparison}
+          onRemoveDuvet={handleRemoveFromComparison}
+        />
+      )}
+    </>
   );
 };
 

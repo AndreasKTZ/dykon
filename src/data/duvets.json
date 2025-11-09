@@ -6,7 +6,7 @@
       "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
       "price": 1299,
       "currency": "DKK",
-      "image": "/duvets/tusindfryrd.jpg",
+      "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "light",
         "weight": "light",
@@ -45,7 +45,7 @@
       "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
       "price": 1299,
       "currency": "DKK",
-      "image": "/duvets/tusindfryrd.jpg",
+      "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "medium",
         "weight": "medium",
@@ -84,7 +84,7 @@
       "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
       "price": 1299,
       "currency": "DKK",
-      "image": "/duvets/tusindfryrd.jpg",
+      "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "warm",
         "weight": "medium",
@@ -123,7 +123,7 @@
       "description": "Eksklusiv sommerdyne med førsteklasses dun til den ultimative kølige komfort.",
       "price": 2499,
       "currency": "DKK",
-      "image": "/duvets/premium.jpg",
+      "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "light",
         "weight": "light",
@@ -162,7 +162,7 @@
       "description": "Luksuriøs helårsdyne med eksceptionel temperaturregulering til perfekt komfort hele året.",
       "price": 3299,
       "currency": "DKK",
-      "image": "/duvets/premium.jpg",
+      "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "medium",
         "weight": "medium",
@@ -201,7 +201,7 @@
       "description": "Klassisk dansk håndværk med perfekt balance mellem varme og åndbarhed.",
       "price": 1799,
       "currency": "DKK",
-      "image": "/duvets/classic.jpg",
+      "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "medium",
         "weight": "medium",
@@ -240,7 +240,7 @@
       "description": "Fyldig og omsluttende vinterdyne til kolde nætter med maksimal varme.",
       "price": 2199,
       "currency": "DKK",
-      "image": "/duvets/winter.jpg",
+      "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "extra-warm",
         "weight": "heavy",
@@ -279,7 +279,7 @@
       "description": "Prisvenlig sommerdyne med klassisk Flora Danica kvalitet.",
       "price": 999,
       "currency": "DKK",
-      "image": "/duvets/budget.jpg",
+      "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "light",
         "weight": "light",
