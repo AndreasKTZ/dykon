@@ -59,85 +59,62 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
     return higher ? value1 > value2 : value1 < value2;
   };
 
+  // Vis kun hvis mindst én dyne er valgt
+  if (!hasFirstDuvet && !hasSecondDuvet) {
+    return null;
+  }
+
   return (
     <div className={`comparison-bar ${isExpanded ? 'comparison-bar--expanded' : ''}`}>
       <div className="comparison-bar__wrapper">
         {/* Collapsed View */}
         {!isExpanded && (
-          <div className="comparison-bar__slots">
-            {/* First Slot */}
-            <div className="comparison-bar__slot">
-              {duvet1 ? (
-                <div className="comparison-bar__card">
-                  <img 
-                    src={duvet1.image} 
-                    alt={duvet1.name}
-                    className="comparison-bar__image"
-                  />
-                  <div className="comparison-bar__info">
-                    <h4 className="comparison-bar__name">{duvet1.name}</h4>
-                    <p className="comparison-bar__price">
-                      {duvet1.price.toLocaleString('da-DK')},-
-                    </p>
-                  </div>
+          <div className="comparison-bar__compact">
+            <div className="comparison-bar__compact-items">
+              {duvet1 && (
+                <div className="comparison-bar__compact-item">
+                  <img src={duvet1.image} alt={duvet1.name} className="comparison-bar__compact-image" />
                   <button
-                    className="comparison-bar__remove"
+                    className="comparison-bar__compact-remove"
                     onClick={() => onRemoveDuvet(0)}
-                    aria-label="Fjern fra sammenligning"
+                    aria-label="Fjern"
                   >
-                    <X size={20} />
+                    <X size={16} />
                   </button>
                 </div>
-              ) : (
-                <div className="comparison-bar__placeholder">
-                  <ArrowLeftRight size={24} />
-                  <span>Vælg en dyne</span>
-                </div>
               )}
-            </div>
-
-            {/* Compare Button */}
-            <div className="comparison-bar__action">
-              <Button
-                variant="primary"
-                onClick={() => setIsExpanded(true)}
-                disabled={!canCompare}
-                icon={<ArrowLeftRight />}
-              >
-                Sammenlign nu
-              </Button>
-            </div>
-
-            {/* Second Slot */}
-            <div className="comparison-bar__slot">
-              {duvet2 ? (
-                <div className="comparison-bar__card">
-                  <img 
-                    src={duvet2.image} 
-                    alt={duvet2.name}
-                    className="comparison-bar__image"
-                  />
-                  <div className="comparison-bar__info">
-                    <h4 className="comparison-bar__name">{duvet2.name}</h4>
-                    <p className="comparison-bar__price">
-                      {duvet2.price.toLocaleString('da-DK')},-
-                    </p>
-                  </div>
+              {duvet2 && (
+                <div className="comparison-bar__compact-item">
+                  <img src={duvet2.image} alt={duvet2.name} className="comparison-bar__compact-image" />
                   <button
-                    className="comparison-bar__remove"
+                    className="comparison-bar__compact-remove"
                     onClick={() => onRemoveDuvet(1)}
-                    aria-label="Fjern fra sammenligning"
+                    aria-label="Fjern"
                   >
-                    <X size={20} />
+                    <X size={16} />
                   </button>
                 </div>
-              ) : (
-                <div className="comparison-bar__placeholder">
-                  <ArrowLeftRight size={24} />
-                  <span>Vælg en dyne mere til sammenligning</span>
+              )}
+              {!duvet1 && (
+                <div className="comparison-bar__compact-placeholder">
+                  <span>+</span>
+                </div>
+              )}
+              {!duvet2 && (
+                <div className="comparison-bar__compact-placeholder">
+                  <span>+</span>
                 </div>
               )}
             </div>
+            
+            <Button
+              variant="primary"
+              onClick={() => setIsExpanded(true)}
+              disabled={!canCompare}
+              className="comparison-bar__compact-button"
+            >
+              Sammenlign ({(duvet1 ? 1 : 0) + (duvet2 ? 1 : 0)}/2)
+            </Button>
           </div>
         )}
 
@@ -156,7 +133,161 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
               </button>
             </div>
 
-            {/* Comparison Table */}
+            {/* Mobile: Simple side-by-side comparison */}
+            <div className="comparison-bar__mobile-view">
+              <div className="comparison-bar__mobile-images">
+                <div className="comparison-bar__mobile-image-wrapper">
+                  <img src={duvet1.image} alt={duvet1.name} className="comparison-bar__mobile-img" />
+                  <button
+                    className="comparison-bar__mobile-close"
+                    onClick={() => onRemoveDuvet(0)}
+                    aria-label="Fjern"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+                <div className="comparison-bar__mobile-image-wrapper">
+                  <img src={duvet2.image} alt={duvet2.name} className="comparison-bar__mobile-img" />
+                  <button
+                    className="comparison-bar__mobile-close"
+                    onClick={() => onRemoveDuvet(1)}
+                    aria-label="Fjern"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="comparison-bar__mobile-comparison">
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Navn</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">{duvet1.name}</div>
+                    <div className="comparison-bar__mobile-val">{duvet2.name}</div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Pris</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className={`comparison-bar__mobile-val ${isBetter(duvet1.price, duvet2.price, false) ? 'comparison-bar__mobile-val--better' : ''}`}>
+                      {duvet1.price.toLocaleString('da-DK')} kr
+                    </div>
+                    <div className={`comparison-bar__mobile-val ${isBetter(duvet2.price, duvet1.price, false) ? 'comparison-bar__mobile-val--better' : ''}`}>
+                      {duvet2.price.toLocaleString('da-DK')} kr
+                    </div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Kvalitet</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">{duvet1.specifications.quality}</div>
+                    <div className="comparison-bar__mobile-val">{duvet2.specifications.quality}</div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Varme</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">{duvet1.specifications.insulationLevel}</div>
+                    <div className="comparison-bar__mobile-val">{duvet2.specifications.insulationLevel}</div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Vægt</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">
+                      {duvet1.variants?.[0]?.fillWeight || getWeightLabel(duvet1.characteristics.weight)}
+                    </div>
+                    <div className="comparison-bar__mobile-val">
+                      {duvet2.variants?.[0]?.fillWeight || getWeightLabel(duvet2.characteristics.weight)}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Sæson</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">{duvet1.seasons.map(s => getSeasonLabel(s)).join(', ')}</div>
+                    <div className="comparison-bar__mobile-val">{duvet2.seasons.map(s => getSeasonLabel(s)).join(', ')}</div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Materiale</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">{duvet1.specifications.casing}</div>
+                    <div className="comparison-bar__mobile-val">{duvet2.specifications.casing}</div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Fill Power</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className={`comparison-bar__mobile-val ${isBetter(duvet1.characteristics.fillPower, duvet2.characteristics.fillPower) ? 'comparison-bar__mobile-val--better' : ''}`}>
+                      {duvet1.characteristics.fillPower}
+                    </div>
+                    <div className={`comparison-bar__mobile-val ${isBetter(duvet2.characteristics.fillPower, duvet1.characteristics.fillPower) ? 'comparison-bar__mobile-val--better' : ''}`}>
+                      {duvet2.characteristics.fillPower}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Størrelser</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">
+                      {duvet1.specifications.dimensions.availableSizes?.join(', ') || `${duvet1.specifications.dimensions.width}x${duvet1.specifications.dimensions.length}cm`}
+                    </div>
+                    <div className="comparison-bar__mobile-val">
+                      {duvet2.specifications.dimensions.availableSizes?.join(', ') || `${duvet2.specifications.dimensions.width}x${duvet2.specifications.dimensions.length}cm`}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Garanti</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">{duvet1.specifications.warranty}</div>
+                    <div className="comparison-bar__mobile-val">{duvet2.specifications.warranty}</div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Certificeringer</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">
+                      <div className="comparison-bar__mobile-badges">
+                        {duvet1.specifications.certifications.oekotex && <span>OEKO-TEX</span>}
+                        {duvet1.specifications.certifications.nomite && <span>NOMITE</span>}
+                        {duvet1.specifications.certifications.downafresh && <span>Downafresh</span>}
+                        {duvet1.specifications.certifications.downpass && <span>DOWNPASS</span>}
+                      </div>
+                    </div>
+                    <div className="comparison-bar__mobile-val">
+                      <div className="comparison-bar__mobile-badges">
+                        {duvet2.specifications.certifications.oekotex && <span>OEKO-TEX</span>}
+                        {duvet2.specifications.certifications.nomite && <span>NOMITE</span>}
+                        {duvet2.specifications.certifications.downafresh && <span>Downafresh</span>}
+                        {duvet2.specifications.certifications.downpass && <span>DOWNPASS</span>}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="comparison-bar__mobile-row">
+                  <div className="comparison-bar__mobile-label">Vask</div>
+                  <div className="comparison-bar__mobile-values">
+                    <div className="comparison-bar__mobile-val">{duvet1.specifications.care.wash}</div>
+                    <div className="comparison-bar__mobile-val">{duvet2.specifications.care.wash}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop: Table comparison */}
             <div className="comparison-bar__table">
               {/* Duvet names */}
               <div className="comparison-bar__row comparison-bar__row--header">

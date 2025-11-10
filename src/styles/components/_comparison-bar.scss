@@ -31,7 +31,17 @@
     overflow-y: auto;
     
     @include mobile {
-      max-height: 90vh;
+      max-height: 100vh;
+      height: 100vh;
+    }
+  }
+
+  @include mobile {
+    max-height: 80px;
+    
+    &.comparison-bar--expanded {
+      max-height: 100vh;
+      height: 100vh;
     }
   }
 }
@@ -42,7 +52,106 @@
   padding: 24px 32px;
 
   @include mobile {
-    padding: 20px 16px;
+    padding: 12px 16px;
+  }
+}
+
+// Compact bottom bar
+.comparison-bar__compact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  @include mobile {
+    gap: 10px;
+  }
+}
+
+.comparison-bar__compact-items {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+
+  @include mobile {
+    gap: 6px;
+  }
+}
+
+.comparison-bar__compact-item {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid $color-border-light;
+
+  @include mobile {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.comparison-bar__compact-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comparison-bar__compact-remove {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: $color-text-primary;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  @include mobile {
+    width: 22px;
+    height: 22px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+.comparison-bar__compact-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px dashed $color-border-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text-secondary;
+  font-size: 24px;
+
+  @include mobile {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+.comparison-bar__compact-button {
+  white-space: nowrap;
+
+  @include mobile {
+    font-size: 14px;
+    padding: 12px 20px;
   }
 }
 
@@ -133,14 +242,15 @@
   background: $color-background-white;
   border: 1px solid $color-border-light;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
   color: $color-text-secondary;
+  z-index: 10;
 
   &:hover {
     background: $color-background-light;
@@ -153,14 +263,14 @@
   }
 
   @include mobile {
-    width: 28px;
-    height: 28px;
-    top: 6px;
-    right: 6px;
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    right: 8px;
 
     svg {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
     }
   }
 }
@@ -203,6 +313,43 @@
   }
 }
 
+.comparison-bar__clear-all {
+  display: none;
+  margin-bottom: 12px;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.comparison-bar__clear-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: $color-background-page;
+  border: 1px solid $color-border-light;
+  border-radius: 6px;
+  color: $color-text-secondary;
+  font-family: $font-secondary;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  justify-content: center;
+
+  &:hover {
+    background: $color-background-white;
+    border-color: $color-text-secondary;
+    color: $color-text-primary;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
 .comparison-bar__action {
   display: flex;
   justify-content: center;
@@ -216,6 +363,13 @@
 .comparison-bar__expanded-content {
   padding: 32px 0;
   animation: fadeIn 0.3s ease-out 0.2s both;
+
+  @include mobile {
+    padding: 16px 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
   @keyframes fadeIn {
     from {
@@ -287,11 +441,147 @@
   }
 }
 
+// Mobile comparison view
+.comparison-bar__mobile-view {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px 16px;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+.comparison-bar__mobile-images {
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+}
+
+.comparison-bar__mobile-image-wrapper {
+  @include mobile {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid $color-border-light;
+  }
+}
+
+.comparison-bar__mobile-img {
+  @include mobile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.comparison-bar__mobile-close {
+  @include mobile {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: $color-text-primary;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+.comparison-bar__mobile-comparison {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+    overflow-y: auto;
+  }
+}
+
+.comparison-bar__mobile-row {
+  @include mobile {
+    border-bottom: 1px solid $color-border-light;
+    padding: 14px 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.comparison-bar__mobile-label {
+  @include mobile {
+    font-family: $font-secondary;
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+}
+
+.comparison-bar__mobile-values {
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+.comparison-bar__mobile-val {
+  @include mobile {
+    font-family: $font-secondary;
+    font-size: 14px;
+    color: $color-text-primary;
+    line-height: 1.4;
+    font-weight: 500;
+
+    &--better {
+      color: rgb(16, 185, 129);
+      font-weight: 600;
+    }
+  }
+}
+
+.comparison-bar__mobile-badges {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+      font-size: 11px;
+      color: $color-text-secondary;
+      background: $color-background-page;
+      padding: 2px 6px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+  }
+}
+
 .comparison-bar__table {
   padding: 0 32px;
 
   @include mobile {
-    padding: 0 20px;
+    display: none; // Hide table on mobile, use cards instead
   }
 }
 
