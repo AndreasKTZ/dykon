@@ -369,10 +369,21 @@
 }
 
 .comparison-bar__cell--better {
-  background: rgba(136, 3, 56, 0.05);
-  border: 1px solid rgba(136, 3, 56, 0.2);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   color: $color-text-primary;
   font-weight: 500;
+  position: relative;
+  
+  &::before {
+    content: '✓';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #10B981;
+    font-size: 16px;
+    font-weight: bold;
+  }
 }
 
 .comparison-bar__table-image {

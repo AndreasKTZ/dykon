@@ -1,126 +1,182 @@
 {
   "duvets": [
     {
-      "id": "flora-tusindfryrd-light",
-      "name": "Flora Danica Tusindfryd – Sval, 135x200",
-      "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
-      "price": 1299,
+      "id": "flora-danica-anemone-cool",
+      "name": "Flora Danica ANEMONE – Sval moskusdundyne",
+      "description": "Let sommerdyne i ANEMONE-serien med 90% europæiske moskusdun og bomuldscambric – oplagt til dig der vil have en let, sval og allergivenlig dyne.",
+      "price": 1399,
       "currency": "DKK",
       "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "light",
         "weight": "light",
         "season": "summer",
-        "filling": "dun",
-        "fillPower": 750,
+        "filling": "down",
+        "fillPower": 725,
         "threadCount": 280
       },
       "mood": ["cool", "natural"],
-      "temperature": ["cool", "moderate"],
-      "weightPreference": 25,
+      "temperature": ["cool"],
+      "weightPreference": 20,
       "seasons": ["summer"],
-      "priceLevel": 1,
+      "priceLevel": 2,
       "features": [
-        "Moskusdun 90% – naturlig lethed og høj bæreevne (750)",
-        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
-        "Sval komfort – ideel til varme nætter og kølige soveværelser",
-        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+        "90% hvide, europæiske moskusdun / 10% moskusfjer (sval: 240–270 g fyld)",
+        "100% bomuldscambric – tæt, let og slidstærk",
+        "Gennemsyet i kvadrater så fyldet ligger jævnt",
+        "STANDARD 100 by OEKO-TEX®",
+        "NOMITE, Downafresh®, allergivenlig",
+        "Kan vaskes ved 60°C og tørretumbles",
+        "10 års garanti"
       ],
       "specifications": {
-        "material": "100% bomuld",
-        "filling": "90% hvide gåsedun, 10% fjer",
-        "fillWeight": "450g",
+        "type": "Sommerdyne",
+        "duvetType": "Enkeltdyne / Ekstra lang",
+        "fillType": "Moskusdundyne",
+        "filling": "90% hvide, europæiske moskusdun / 10% hvide, europæiske moskusfjer",
+        "fillPower": 725,
+        "casing": "100% bomuldscambric",
+        "construction": "Gennemsyet, kvadrater",
+        "color": "Hvid",
+        "edging": "Creme piping, 100% polyester, cord edge",
+        "packaging": "Opbevaringstaske",
+        "quality": "GOLD",
+        "insulationLevel": "Sval",
+        "warranty": "10 års garanti",
         "dimensions": {
-          "140x200": true,
-          "140x220": false,
-          "200x200": false,
-          "200x220": false
+          "width": 135,
+          "length": 200,
+          "availableSizes": ["135x200", "135x220"]
+        },
+        "care": {
+          "wash": "60°C",
+          "bleach": "Do not bleach",
+          "tumbleDry": "Tumble dry at normal temperature (max. 80°C)",
+          "iron": "Do not iron",
+          "dryCleaning": "Do not dry clean",
+          "maintenance": "Shake and air regularly; do not beat or vacuum"
+        },
+        "certifications": {
+          "oekotex": true,
+          "nomite": true,
+          "downafresh": true,
+          "allergyFriendly": true
         }
       },
+      "variants": [
+        {
+          "size": "135x200",
+          "price": 1399,
+          "fillWeight": "240 g",
+          "totalWeight": "1050 g",
+          "insulationLevel": "Sval",
+          "articleNumber": "4025250"
+        },
+        {
+          "size": "135x220",
+          "price": 1599,
+          "fillWeight": "270 g",
+          "totalWeight": "1130 g",
+          "insulationLevel": "Sval",
+          "articleNumber": "4025251"
+        }
+      ],
       "matchingScore": 0
     },
     {
-      "id": "flora-tusindfryrd-allseason",
-      "name": "Flora Danica Tusindfryd – Sval, 135x200",
-      "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
-      "price": 1299,
-      "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
-      "characteristics": {
-        "warmth": "medium",
-        "weight": "medium",
-        "season": "all-year",
-        "filling": "dun",
-        "fillPower": 750,
-        "threadCount": 280
-      },
-      "mood": ["natural", "soft"],
-      "temperature": ["moderate"],
-      "weightPreference": 50,
-      "seasons": ["all-year"],
-      "priceLevel": 1,
-      "features": [
-        "Moskusdun 90% – naturlig lethed og høj bæreevne (750)",
-        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
-        "Sval komfort – ideel til varme nætter og kølige soveværelser",
-        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
-      ],
-      "specifications": {
-        "material": "100% bomuld",
-        "filling": "90% hvide gåsedun, 10% fjer",
-        "fillWeight": "650g",
-        "dimensions": {
-          "140x200": true,
-          "140x220": true,
-          "200x200": true,
-          "200x220": true
-        }
-      },
-      "matchingScore": 0
-    },
-    {
-      "id": "flora-tusindfryrd-warm",
-      "name": "Flora Danica Tusindfryd – Sval, 135x200",
-      "description": "Let, luftig og naturlig sølej – perfekt til alle tune nætter.",
-      "price": 1299,
+      "id": "flora-danica-anemone-warm",
+      "name": "Flora Danica ANEMONE – Varm moskusdundyne",
+      "description": "Varm helårs-/vinterdyne i ANEMONE-serien med 90% moskusdun, kassettesyet og med tætvævet bomuldscambric.",
+      "price": 1999,
       "currency": "DKK",
       "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "warm",
         "weight": "medium",
         "season": "winter",
-        "filling": "dun",
-        "fillPower": 750,
+        "filling": "down",
+        "fillPower": 725,
         "threadCount": 280
       },
-      "mood": ["cozy", "soft"],
-      "temperature": ["warm", "moderate"],
-      "weightPreference": 60,
-      "seasons": ["winter", "all-year"],
+      "mood": ["warm", "natural"],
+      "temperature": ["moderate", "warm"],
+      "weightPreference": 35,
+      "seasons": ["all-year", "winter"],
       "priceLevel": 2,
       "features": [
-        "Moskusdun 90% – naturlig lethed og høj bæreevne (750)",
-        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
-        "Sval komfort – ideel til varme nætter og kølige soveværelser",
-        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+        "90% hvide, europæiske moskusdun / 10% moskusfjer",
+        "Kassettesyet med indre vægge – ingen kuldebroer",
+        "100% bomuldscambric",
+        "STANDARD 100 by OEKO-TEX®, NOMITE, Downafresh®",
+        "Vaskbar ved 60°C",
+        "10 års garanti"
       ],
       "specifications": {
-        "material": "100% bomuld",
-        "filling": "90% hvide gåsedun, 10% fjer",
-        "fillWeight": "900g",
+        "type": "Dyne",
+        "duvetType": "Enkeltdyne / Ekstra lang / Dobbeltdyne (200x220)",
+        "fillType": "Moskusdundyne",
+        "filling": "90% hvide, europæiske moskusdun / 10% hvide, europæiske moskusfjer",
+        "fillPower": 725,
+        "casing": "100% bomuldscambric",
+        "construction": "Kassettesyet med indre kanalvægge",
+        "color": "Hvid",
+        "edging": "Creme, 100% polyester, cord edge",
+        "packaging": "Opbevaringstaske",
+        "quality": "GOLD",
+        "insulationLevel": "Varm",
+        "warranty": "10 års garanti",
         "dimensions": {
-          "140x200": true,
-          "140x220": true,
-          "200x200": true,
-          "200x220": true
+          "width": 135,
+          "length": 200,
+          "availableSizes": ["135x200", "135x220", "200x220"]
+        },
+        "care": {
+          "wash": "60°C",
+          "bleach": "Do not bleach",
+          "tumbleDry": "Tumble dry at normal temperature (max. 80°C)",
+          "iron": "Do not iron",
+          "dryCleaning": "Do not dry clean",
+          "maintenance": "Wash and dry in machines ≥7 kg. Shake and air regularly; do not beat or vacuum"
+        },
+        "certifications": {
+          "oekotex": true,
+          "nomite": true,
+          "downafresh": true,
+          "allergyFriendly": true
         }
       },
+      "variants": [
+        {
+          "size": "135x200",
+          "price": 1999,
+          "fillWeight": "500 g",
+          "totalWeight": "1280 g",
+          "insulationLevel": "Varm",
+          "articleNumber": "4025350"
+        },
+        {
+          "size": "135x220",
+          "price": 2299,
+          "fillWeight": "550 g",
+          "totalWeight": "1400 g",
+          "insulationLevel": "Varm",
+          "articleNumber": "4025351"
+        },
+        {
+          "size": "200x220",
+          "price": 2999,
+          "fillWeight": "815 g",
+          "totalWeight": "2263 g",
+          "insulationLevel": "Varm",
+          "articleNumber": "4025385"
+        }
+      ],
       "matchingScore": 0
     },
     {
-      "id": "flora-premium-light",
-      "name": "Flora Danica Premium – Let Sommerkomfort",
-      "description": "Eksklusiv sommerdyne med førsteklasses dun til den ultimative kølige komfort.",
+      "id": "flora-danica-tusindfryd-cool",
+      "name": "Flora Danica TUSINDFRYD – Sval moskusdundyne",
+      "description": "Premium sommerdyne i TUSINDFRYD-serien med 100% hvide europæiske moskusdun, jacquardvævet bomuld og høj bæreevne 750.",
       "price": 2499,
       "currency": "DKK",
       "image": "/duvets/placeholder.jpg",
@@ -128,190 +184,437 @@
         "warmth": "light",
         "weight": "light",
         "season": "summer",
-        "filling": "dun",
-        "fillPower": 850,
-        "threadCount": 320
+        "filling": "down",
+        "fillPower": 750,
+        "threadCount": 300
       },
-      "mood": ["cool", "natural"],
+      "mood": ["cool", "luxury"],
       "temperature": ["cool"],
-      "weightPreference": 20,
+      "weightPreference": 22,
       "seasons": ["summer"],
       "priceLevel": 3,
       "features": [
-        "Moskusdun 95% – naturlig lethed og høj bæreevne (850)",
-        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
-        "Sval komfort – ideel til varme nætter og kølige soveværelser",
-        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+        "100% hvide, europæiske moskusdun (sval: 240–400 g afhængigt af størrelse)",
+        "Jacquardvævet 100% bomuld – meget tæt og slidstærkt",
+        "Gennemsyet i kvadrater",
+        "STANDARD 100 by OEKO-TEX®",
+        "Allergy friendly, Downafresh®, NOMITE",
+        "Vaskbar ved 60°C",
+        "10 års garanti"
       ],
       "specifications": {
-        "material": "100% ægyptisk bomuld",
-        "filling": "95% europæiske hvide gåsedun, 5% fjer",
-        "fillWeight": "400g",
+        "type": "Sommerdyne",
+        "duvetType": "Enkeltdyne / Ekstra lang / Dobbeltdyne",
+        "fillType": "Moskusdundyne",
+        "filling": "100% hvide, europæiske moskusdun",
+        "fillPower": 750,
+        "casing": "100% bomuld, jacquardvævet",
+        "construction": "Gennemsyet, kvadrater",
+        "color": "Hvid",
+        "edging": "Creme, 100% bomuldssatin, cord edge",
+        "packaging": "Opbevaringstaske",
+        "quality": "GOLD",
+        "insulationLevel": "Sval",
+        "warranty": "10 års garanti",
         "dimensions": {
-          "140x200": true,
-          "140x220": true,
-          "200x200": true,
-          "200x220": true
+          "width": 135,
+          "length": 200,
+          "availableSizes": ["135x200", "135x220", "200x220"]
+        },
+        "care": {
+          "wash": "60°C",
+          "bleach": "Do not bleach",
+          "tumbleDry": "Tumble dry at normal temperature (max. 80°C)",
+          "iron": "Do not iron",
+          "dryCleaning": "Do not dry clean",
+          "maintenance": "Shake and air regularly; wash/dry in large machines; do not beat or vacuum"
+        },
+        "certifications": {
+          "oekotex": true,
+          "nomite": true,
+          "downafresh": true,
+          "allergyFriendly": true
         }
       },
+      "variants": [
+        {
+          "size": "135x200",
+          "price": 2499,
+          "fillWeight": "240 g",
+          "totalWeight": "1000 g",
+          "insulationLevel": "Sval",
+          "articleNumber": "4011650"
+        },
+        {
+          "size": "135x220",
+          "price": 2799,
+          "fillWeight": "270 g",
+          "totalWeight": "—",
+          "insulationLevel": "Sval",
+          "articleNumber": "4011651"
+        },
+        {
+          "size": "200x220",
+          "price": 2499,
+          "fillWeight": "400 g",
+          "totalWeight": "1560 g",
+          "insulationLevel": "Sval",
+          "articleNumber": "4011685"
+        }
+      ],
       "matchingScore": 0
     },
     {
-      "id": "flora-premium-allseason",
-      "name": "Flora Danica Premium – Helårsdyne",
-      "description": "Luksuriøs helårsdyne med eksceptionel temperaturregulering til perfekt komfort hele året.",
-      "price": 3299,
+      "id": "flora-danica-tusindfryd-warm",
+      "name": "Flora Danica TUSINDFRYD – Varm moskusdundyne",
+      "description": "Varm luksusdyne med 100% moskusdun, kassettesyet og meget høj bæreevne (750) – til helårsbrug eller kolde soveværelser.",
+      "price": 3699,
       "currency": "DKK",
       "image": "/duvets/placeholder.jpg",
       "characteristics": {
-        "warmth": "medium",
+        "warmth": "warm",
         "weight": "medium",
-        "season": "all-year",
-        "filling": "dun",
-        "fillPower": 850,
-        "threadCount": 320
-      },
-      "mood": ["natural", "soft", "cozy"],
-      "temperature": ["moderate"],
-      "weightPreference": 50,
-      "seasons": ["all-year"],
-      "priceLevel": 3,
-      "features": [
-        "Moskusdun 95% – naturlig lethed og høj bæreevne (850)",
-        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
-        "Sval komfort – ideel til varme nætter og kølige soveværelser",
-        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
-      ],
-      "specifications": {
-        "material": "100% ægyptisk bomuld",
-        "filling": "95% europæiske hvide gåsedun, 5% fjer",
-        "fillWeight": "700g",
-        "dimensions": {
-          "140x200": true,
-          "140x220": true,
-          "200x200": true,
-          "200x220": true
-        }
-      },
-      "matchingScore": 0
-    },
-    {
-      "id": "flora-classic-balance",
-      "name": "Flora Danica Classic – Naturlig Balance",
-      "description": "Klassisk dansk håndværk med perfekt balance mellem varme og åndbarhed.",
-      "price": 1799,
-      "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
-      "characteristics": {
-        "warmth": "medium",
-        "weight": "medium",
-        "season": "all-year",
-        "filling": "dun",
-        "fillPower": 800,
+        "season": "winter",
+        "filling": "down",
+        "fillPower": 750,
         "threadCount": 300
       },
-      "mood": ["natural", "soft"],
-      "temperature": ["moderate"],
-      "weightPreference": 45,
-      "seasons": ["all-year"],
-      "priceLevel": 2,
+      "mood": ["warm", "luxury"],
+      "temperature": ["moderate", "warm"],
+      "weightPreference": 35,
+      "seasons": ["all-year", "winter"],
+      "priceLevel": 3,
       "features": [
-        "Moskusdun 90% – naturlig lethed og høj bæreevne (800)",
-        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
-        "Sval komfort – ideel til varme nætter og kølige soveværelser",
-        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+        "100% hvide, europæiske moskusdun (varm: 550–900 g fyld)",
+        "Kassettesyet med indre kanalvægge – ingen kuldebroer",
+        "Jacquardvævet bomuld – meget tæt",
+        "STANDARD 100 by OEKO-TEX®",
+        "NOMITE, Downafresh®, allergivenlig",
+        "Vask 60°C, kan tørretumbles",
+        "10 års garanti"
       ],
       "specifications": {
-        "material": "100% bomuld",
-        "filling": "90% hvide gåsedun, 10% fjer",
-        "fillWeight": "650g",
+        "type": "Dyne",
+        "duvetType": "Enkeltdyne / Ekstra lang / Dobbeltdyne",
+        "fillType": "Moskusdundyne",
+        "filling": "100% hvide, europæiske moskusdun",
+        "fillPower": 750,
+        "casing": "100% bomuld, jacquardvævet",
+        "construction": "Kassettesyet med indre kanalvægge",
+        "color": "Hvid",
+        "edging": "Creme, 100% bomuldssatin, cord edge",
+        "packaging": "Opbevaringstaske",
+        "quality": "GOLD",
+        "insulationLevel": "Varm",
+        "warranty": "10 års garanti",
         "dimensions": {
-          "140x200": true,
-          "140x220": true,
-          "200x200": true,
-          "200x220": true
+          "width": 135,
+          "length": 200,
+          "availableSizes": ["135x200", "135x220", "200x220"]
+        },
+        "care": {
+          "wash": "60°C",
+          "bleach": "Do not bleach",
+          "tumbleDry": "Tumble dry at normal temperature (max. 80°C)",
+          "iron": "Do not iron",
+          "dryCleaning": "Do not dry clean",
+          "maintenance": "Wash/dry in large machines; shake and air regularly"
+        },
+        "certifications": {
+          "oekotex": true,
+          "nomite": true,
+          "downafresh": true,
+          "allergyFriendly": true
         }
       },
+      "variants": [
+        {
+          "size": "135x200",
+          "price": 3699,
+          "fillWeight": "550 g",
+          "insulationLevel": "Varm",
+          "articleNumber": "4021550"
+        },
+        {
+          "size": "135x220",
+          "price": 3999,
+          "fillWeight": "605 g",
+          "insulationLevel": "Varm",
+          "articleNumber": "4021551"
+        },
+        {
+          "size": "200x220",
+          "price": 3699,
+          "fillWeight": "900 g",
+          "insulationLevel": "Varm",
+          "articleNumber": "4021585"
+        }
+      ],
       "matchingScore": 0
     },
     {
-      "id": "flora-winter-extra",
-      "name": "Flora Danica Vinter – Ekstra Varm",
-      "description": "Fyldig og omsluttende vinterdyne til kolde nætter med maksimal varme.",
-      "price": 2199,
+      "id": "flora-danica-tusindfryd-extra-warm",
+      "name": "Flora Danica TUSINDFRYD – Ekstra varm moskusdundyne",
+      "description": "Meget varm vinterdyne med højt moskusdunsindhold og kassettesyet konstruktion. Findes helt op til 240x220.",
+      "price": 3999,
       "currency": "DKK",
       "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "extra-warm",
         "weight": "heavy",
         "season": "winter",
-        "filling": "dun",
-        "fillPower": 800,
+        "filling": "down",
+        "fillPower": 750,
         "threadCount": 300
       },
-      "mood": ["cozy", "soft"],
+      "mood": ["cozy", "luxury"],
       "temperature": ["warm"],
-      "weightPreference": 75,
+      "weightPreference": 45,
       "seasons": ["winter"],
-      "priceLevel": 2,
+      "priceLevel": 3,
       "features": [
-        "Moskusdun 90% – naturlig lethed og høj bæreevne (800)",
-        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
-        "Sval komfort – ideel til varme nætter og kølige soveværelser",
-        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+        "100% hvide, europæiske moskusdun (800–1580 g fyld)",
+        "Kassettesyet med indre kanalvægge – ingen kuldebroer",
+        "Jacquardvævet bomuld",
+        "STANDARD 100 by OEKO-TEX®",
+        "NOMITE og Downafresh®",
+        "Vask 60°C, tørretumbling muligt",
+        "10 års garanti"
       ],
       "specifications": {
-        "material": "100% bomuld",
-        "filling": "90% hvide gåsedun, 10% fjer",
-        "fillWeight": "1100g",
+        "type": "Vinterdyne",
+        "duvetType": "Enkeltdyne / Ekstra lang / Dobbeltdyne",
+        "fillType": "Moskusdundyne",
+        "filling": "100% hvide, europæiske moskusdun",
+        "fillPower": 750,
+        "casing": "100% bomuld, jacquardvævet",
+        "construction": "Kassettesyet med indre kanalvægge",
+        "color": "Hvid",
+        "edging": "Creme, 100% bomuldssatin, cord edge",
+        "packaging": "Opbevaringstaske",
+        "quality": "GOLD",
+        "insulationLevel": "Ekstra varm",
+        "warranty": "10 års garanti",
         "dimensions": {
-          "140x200": true,
-          "140x220": true,
-          "200x200": true,
-          "200x220": true
+          "width": 135,
+          "length": 200,
+          "availableSizes": ["135x200", "135x220", "240x220"]
+        },
+        "care": {
+          "wash": "60°C",
+          "bleach": "Do not bleach",
+          "tumbleDry": "Tumble dry at normal temperature (max. 80°C)",
+          "iron": "Do not iron",
+          "dryCleaning": "Do not dry clean",
+          "maintenance": "Wash/dry in large machines; shake and air regularly"
+        },
+        "certifications": {
+          "oekotex": true,
+          "nomite": true,
+          "downafresh": true,
+          "allergyFriendly": true
         }
       },
+      "variants": [
+        {
+          "size": "135x200",
+          "price": 3999,
+          "fillWeight": "800 g",
+          "totalWeight": "1630 g",
+          "insulationLevel": "Ekstra varm",
+          "articleNumber": "4001650"
+        },
+        {
+          "size": "135x220",
+          "price": 4499,
+          "fillWeight": "875 g",
+          "insulationLevel": "Ekstra varm",
+          "articleNumber": "4001651"
+        },
+        {
+          "size": "240x220",
+          "price": 4499,
+          "fillWeight": "1580 g",
+          "totalWeight": "3020 g",
+          "insulationLevel": "Ekstra varm",
+          "articleNumber": "4001689"
+        }
+      ],
       "matchingScore": 0
     },
     {
-      "id": "flora-budget-summer",
-      "name": "Flora Danica Sommer – Lettere Økonomi",
-      "description": "Prisvenlig sommerdyne med klassisk Flora Danica kvalitet.",
-      "price": 999,
+      "id": "flora-danica-erantis-cool",
+      "name": "Flora Danica ERANTIS – Sval moskusdundyne",
+      "description": "Sval, allergivenlig moskusdyne med kølende/temperaturregulerende side og 90% moskusdun – til dig der gerne vil have lidt mere fyld end ANEMONE-sval.",
+      "price": 2499,
       "currency": "DKK",
       "image": "/duvets/placeholder.jpg",
       "characteristics": {
         "warmth": "light",
         "weight": "light",
         "season": "summer",
-        "filling": "dun",
-        "fillPower": 700,
-        "threadCount": 260
+        "filling": "down",
+        "fillPower": 725,
+        "threadCount": 280
       },
-      "mood": ["cool", "natural"],
-      "temperature": ["cool", "moderate"],
-      "weightPreference": 30,
+      "mood": ["cool", "tech"],
+      "temperature": ["cool"],
+      "weightPreference": 25,
       "seasons": ["summer"],
-      "priceLevel": 1,
+      "priceLevel": 3,
       "features": [
-        "Moskusdun 90% – naturlig lethed og høj bæreevne (700)",
-        "100% bomuld, jacquardvævet bolster – åndbart og blødt",
-        "Sval komfort – ideel til varme nætter og kølige soveværelser",
-        "Vaskbar ved 60°C og tåler tørretumbling – nem vedligeholdelse"
+        "90% hvide, europæiske moskusdun / 10% moskusfjer (400–440 g)",
+        "100% bomuldscambric",
+        "Én side med kølende og temperaturregulerende mikrokapsler",
+        "STANDARD 100 by OEKO-TEX®",
+        "NOMITE, Downafresh® greenline, DOWNPASS",
+        "Vask 60°C",
+        "10 års garanti"
       ],
       "specifications": {
-        "material": "100% bomuld",
-        "filling": "85% hvide gåsedun, 15% fjer",
-        "fillWeight": "400g",
+        "type": "Sommerdyne",
+        "duvetType": "Enkeltdyne / Ekstra lang",
+        "fillType": "Moskusdundyne",
+        "filling": "90% hvide, europæiske moskusdun / 10% hvide, europæiske moskusfjer",
+        "fillPower": 725,
+        "casing": "100% bomuldscambric (one side cooling)",
+        "construction": "Gennemsyet, kvadrater",
+        "color": "Hvid",
+        "edging": "Hvid, 100% polyester, cord edge",
+        "packaging": "Opbevaringstaske",
+        "quality": "GOLD",
+        "insulationLevel": "Sval",
+        "warranty": "10 års garanti",
         "dimensions": {
-          "140x200": true,
-          "140x220": false,
-          "200x200": false,
-          "200x220": false
+          "width": 135,
+          "length": 200,
+          "availableSizes": ["135x200", "135x220"]
+        },
+        "care": {
+          "wash": "60°C",
+          "bleach": "Do not bleach",
+          "tumbleDry": "Tumble dry at normal temperature (max. 80°C)",
+          "iron": "Do not iron",
+          "dryCleaning": "Do not dry clean",
+          "maintenance": "Wash/dry in machines ≥7 kg; shake and air regularly"
+        },
+        "certifications": {
+          "oekotex": true,
+          "nomite": true,
+          "downafresh": true,
+          "allergyFriendly": true,
+          "downpass": true
         }
       },
+      "variants": [
+        {
+          "size": "135x200",
+          "price": 2499,
+          "fillWeight": "400 g",
+          "totalWeight": "1244 g",
+          "insulationLevel": "Sval",
+          "articleNumber": "4063450"
+        },
+        {
+          "size": "135x220",
+          "price": 2999,
+          "fillWeight": "440 g",
+          "totalWeight": "1367 g",
+          "insulationLevel": "Sval",
+          "articleNumber": "4063551"
+        }
+      ],
+      "matchingScore": 0
+    },
+    {
+      "id": "flora-danica-orkide-extra-warm",
+      "name": "Flora Danica ORKIDE – Ekstra varm edderdunsdyne",
+      "description": "Topmodellen med 100% islandske edderdun, kassettesyet og batist-bolster. Meget let men ekstremt varm.",
+      "price": 24999,
+      "currency": "DKK",
+      "image": "/duvets/placeholder.jpg",
+      "characteristics": {
+        "warmth": "extra-warm",
+        "weight": "light",
+        "season": "winter",
+        "filling": "eiderdown",
+        "fillPower": 1100,
+        "threadCount": 320
+      },
+      "mood": ["luxury", "natural"],
+      "temperature": ["warm"],
+      "weightPreference": 30,
+      "seasons": ["winter"],
+      "priceLevel": 5,
+      "features": [
+        "100% islandske edderdun (550–900 g afhængigt af størrelse)",
+        "Kassettesyet med indre vægge – ingen kuldebroer",
+        "100% bomuldsbatist, meget tætvævet",
+        "Allergivenlig edderdunsdyne",
+        "Bæreevne 1100",
+        "Leveres i opbevaringstaske"
+      ],
+      "specifications": {
+        "type": "Vinterdyne",
+        "duvetType": "Enkeltdyne / Ekstra lang / Dobbeltdyne",
+        "fillType": "Edderdunsdyne",
+        "filling": "100% islandske edderdun",
+        "fillPower": 1100,
+        "casing": "100% bomuld, batist",
+        "construction": "Kassettesyet med indre kanalvægge",
+        "color": "Creme",
+        "edging": "Creme, 100% bomuldssatin, cord edge",
+        "packaging": "Opbevaringstaske",
+        "quality": "GOLD",
+        "insulationLevel": "Ekstra varm",
+        "warranty": "10 års garanti",
+        "dimensions": {
+          "width": 135,
+          "length": 200,
+          "availableSizes": ["135x200", "135x220", "200x220"]
+        },
+        "care": {
+          "wash": "No",
+          "bleach": "Do not bleach",
+          "tumbleDry": "Tumble dry at low temperature (max. 60°C)",
+          "iron": "Do not iron",
+          "dryCleaning": "Professional wet cleaning – very mild",
+          "maintenance": "Shake and air regularly; do not beat or vacuum"
+        },
+        "certifications": {
+          "oekotex": false,
+          "nomite": false,
+          "downafresh": false,
+          "allergyFriendly": true
+        }
+      },
+      "variants": [
+        {
+          "size": "135x200",
+          "price": 24999,
+          "fillWeight": "550 g",
+          "totalWeight": "1200 g",
+          "insulationLevel": "Ekstra varm",
+          "articleNumber": "4001750"
+        },
+        {
+          "size": "135x220",
+          "price": 27999,
+          "fillWeight": "600 g",
+          "totalWeight": "1250 g",
+          "insulationLevel": "Ekstra varm",
+          "articleNumber": "4001751"
+        },
+        {
+          "size": "200x220",
+          "price": 49999,
+          "fillWeight": "900 g",
+          "insulationLevel": "Ekstra varm",
+          "articleNumber": "4001785"
+        }
+      ],
       "matchingScore": 0
     }
-  ]
+  ]  
 }
 

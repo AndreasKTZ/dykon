@@ -36,16 +36,6 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isExpanded]);
 
-  const getWarmthLabel = (warmth: string) => {
-    const labels: Record<string, string> = {
-      'light': 'Let',
-      'medium': 'Medium',
-      'warm': 'Varm',
-      'extra-warm': 'Ekstra varm'
-    };
-    return labels[warmth] || warmth;
-  };
-
   const getWeightLabel = (weight: string) => {
     const labels: Record<string, string> = {
       'light': 'Let',
@@ -213,16 +203,29 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                 </div>
               </div>
 
-              {/* Warmth */}
+              {/* Quality */}
               <div className="comparison-bar__row">
                 <div className="comparison-bar__cell comparison-bar__cell--label">
-                  <strong>Varme</strong>
+                  <strong>Kvalitet</strong>
                 </div>
                 <div className="comparison-bar__cell comparison-bar__cell--value">
-                  {getWarmthLabel(duvet1.characteristics.warmth)}
+                  {duvet1.specifications.quality}
                 </div>
                 <div className="comparison-bar__cell comparison-bar__cell--value">
-                  {getWarmthLabel(duvet2.characteristics.warmth)}
+                  {duvet2.specifications.quality}
+                </div>
+              </div>
+
+              {/* Warmth & Insulation */}
+              <div className="comparison-bar__row">
+                <div className="comparison-bar__cell comparison-bar__cell--label">
+                  <strong>Varmeniveau</strong>
+                </div>
+                <div className="comparison-bar__cell comparison-bar__cell--value">
+                  {duvet1.specifications.insulationLevel}
+                </div>
+                <div className="comparison-bar__cell comparison-bar__cell--value">
+                  {duvet2.specifications.insulationLevel}
                 </div>
               </div>
 
@@ -232,10 +235,38 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                   <strong>Vægt</strong>
                 </div>
                 <div className="comparison-bar__cell comparison-bar__cell--value">
-                  {getWeightLabel(duvet1.characteristics.weight)}
+                  {duvet1.variants && duvet1.variants.length > 0 ? (
+                    <>
+                      Fyld: {duvet1.variants[0].fillWeight}
+                      {duvet1.variants[0].totalWeight && (
+                        <>
+                          <br />
+                          <span className="comparison-bar__detail">
+                            Total: {duvet1.variants[0].totalWeight}
+                          </span>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    getWeightLabel(duvet1.characteristics.weight)
+                  )}
                 </div>
                 <div className="comparison-bar__cell comparison-bar__cell--value">
-                  {getWeightLabel(duvet2.characteristics.weight)}
+                  {duvet2.variants && duvet2.variants.length > 0 ? (
+                    <>
+                      Fyld: {duvet2.variants[0].fillWeight}
+                      {duvet2.variants[0].totalWeight && (
+                        <>
+                          <br />
+                          <span className="comparison-bar__detail">
+                            Total: {duvet2.variants[0].totalWeight}
+                          </span>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    getWeightLabel(duvet2.characteristics.weight)
+                  )}
                 </div>
               </div>
 
@@ -309,7 +340,7 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                       : ''
                   }`}
                 >
-                  {duvet1.specifications.material}
+                  {duvet1.specifications.casing}
                   <br />
                   <span className="comparison-bar__detail">
                     Thread count: {duvet1.characteristics.threadCount}
@@ -322,7 +353,7 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                       : ''
                   }`}
                 >
-                  {duvet2.specifications.material}
+                  {duvet2.specifications.casing}
                   <br />
                   <span className="comparison-bar__detail">
                     Thread count: {duvet2.characteristics.threadCount}
@@ -330,24 +361,121 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                 </div>
               </div>
 
-              {/* Dimensions */}
+              {/* Dimensions & Variants */}
               <div className="comparison-bar__row">
                 <div className="comparison-bar__cell comparison-bar__cell--label">
-                  <strong>Dimensioner</strong>
+                  <strong>Størrelser</strong>
                 </div>
                 <div className="comparison-bar__cell comparison-bar__cell--value">
                   <div className="comparison-bar__dimensions">
-                    {Object.entries(duvet1.specifications.dimensions).map(([size, available]) => 
-                      available ? <span key={size} className="comparison-bar__dimension">{size}</span> : null
+                    {duvet1.specifications.dimensions.availableSizes?.map((size) => (
+                      <span key={size} className="comparison-bar__dimension">{size}</span>
+                    )) || (
+                      (() => {
+                        const dims = duvet1.specifications.dimensions;
+                        if ('width' in dims && 'length' in dims) {
+                          return <span className="comparison-bar__dimension">{dims.width}x{dims.length}cm</span>;
+                        }
+                        return Object.entries(dims).map(([size, available]) => 
+                          available ? <span key={size} className="comparison-bar__dimension">{size}</span> : null
+                        );
+                      })()
                     )}
                   </div>
                 </div>
                 <div className="comparison-bar__cell comparison-bar__cell--value">
                   <div className="comparison-bar__dimensions">
-                    {Object.entries(duvet2.specifications.dimensions).map(([size, available]) => 
-                      available ? <span key={size} className="comparison-bar__dimension">{size}</span> : null
+                    {duvet2.specifications.dimensions.availableSizes?.map((size) => (
+                      <span key={size} className="comparison-bar__dimension">{size}</span>
+                    )) || (
+                      (() => {
+                        const dims = duvet2.specifications.dimensions;
+                        if ('width' in dims && 'length' in dims) {
+                          return <span className="comparison-bar__dimension">{dims.width}x{dims.length}cm</span>;
+                        }
+                        return Object.entries(dims).map(([size, available]) => 
+                          available ? <span key={size} className="comparison-bar__dimension">{size}</span> : null
+                        );
+                      })()
                     )}
                   </div>
+                </div>
+              </div>
+
+              {/* Warranty */}
+              <div className="comparison-bar__row">
+                <div className="comparison-bar__cell comparison-bar__cell--label">
+                  <strong>Garanti</strong>
+                </div>
+                <div className="comparison-bar__cell comparison-bar__cell--value">
+                  {duvet1.specifications.warranty}
+                </div>
+                <div className="comparison-bar__cell comparison-bar__cell--value">
+                  {duvet2.specifications.warranty}
+                </div>
+              </div>
+
+              {/* Certifications */}
+              <div className="comparison-bar__row">
+                <div className="comparison-bar__cell comparison-bar__cell--label">
+                  <strong>Certificeringer</strong>
+                </div>
+                <div className="comparison-bar__cell comparison-bar__cell--value">
+                  <div className="comparison-bar__badges">
+                    {duvet1.specifications.certifications.oekotex && (
+                      <span className="comparison-bar__badge">OEKO-TEX</span>
+                    )}
+                    {duvet1.specifications.certifications.nomite && (
+                      <span className="comparison-bar__badge">NOMITE</span>
+                    )}
+                    {duvet1.specifications.certifications.downafresh && (
+                      <span className="comparison-bar__badge">Downafresh</span>
+                    )}
+                    {duvet1.specifications.certifications.downpass && (
+                      <span className="comparison-bar__badge">DOWNPASS</span>
+                    )}
+                    {duvet1.specifications.certifications.allergyFriendly && (
+                      <span className="comparison-bar__badge">Allergivenlig</span>
+                    )}
+                  </div>
+                </div>
+                <div className="comparison-bar__cell comparison-bar__cell--value">
+                  <div className="comparison-bar__badges">
+                    {duvet2.specifications.certifications.oekotex && (
+                      <span className="comparison-bar__badge">OEKO-TEX</span>
+                    )}
+                    {duvet2.specifications.certifications.nomite && (
+                      <span className="comparison-bar__badge">NOMITE</span>
+                    )}
+                    {duvet2.specifications.certifications.downafresh && (
+                      <span className="comparison-bar__badge">Downafresh</span>
+                    )}
+                    {duvet2.specifications.certifications.downpass && (
+                      <span className="comparison-bar__badge">DOWNPASS</span>
+                    )}
+                    {duvet2.specifications.certifications.allergyFriendly && (
+                      <span className="comparison-bar__badge">Allergivenlig</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Care */}
+              <div className="comparison-bar__row">
+                <div className="comparison-bar__cell comparison-bar__cell--label">
+                  <strong>Vask</strong>
+                </div>
+                <div className="comparison-bar__cell comparison-bar__cell--value">
+                  {duvet1.specifications.care.wash}
+                  {duvet1.specifications.care.tumbleDry !== 'Do not tumble dry' && (
+                    <><br /><span className="comparison-bar__detail">Tørretumbler OK</span></>
+                  )}
+                </div>
+                <div className="comparison-bar__cell comparison-bar__cell--value">
+                  {duvet2.specifications.care.wash}
+                  {duvet2.specifications.care.tumbleDry !== 'Do not tumble dry' && (
+                    <><br /><span className="comparison-bar__detail">Tørretumbler OK</span></>
+                  )}
                 </div>
               </div>
 

@@ -2,7 +2,7 @@
 
 export type WarmthLevel = 'light' | 'medium' | 'warm' | 'extra-warm';
 export type SeasonType = 'summer' | 'all-year' | 'winter' | '4-season';
-export type FillingType = 'dun' | 'fjer' | 'blanding';
+export type FillingType = 'down' | 'eiderdown' | 'feathers' | 'blend';
 export type TemperaturePreference = 'cool' | 'moderate' | 'warm';
 
 export interface DuvetCharacteristics {
@@ -15,17 +15,64 @@ export interface DuvetCharacteristics {
 }
 
 export interface DuvetDimensions {
-  '140x200': boolean;
-  '140x220': boolean;
-  '200x200': boolean;
-  '200x220': boolean;
+  width: number;
+  length: number;
+  availableSizes?: string[];
+}
+
+export interface CareInstructions {
+  wash: string;
+  bleach: string;
+  tumbleDry: string;
+  iron: string;
+  dryCleaning: string;
+  maintenance: string;
+}
+
+export interface Certifications {
+  oekotex?: boolean;
+  nomite?: boolean;
+  downafresh?: boolean;
+  allergyFriendly?: boolean;
+  downpass?: boolean;
+}
+
+export interface DuvetVariant {
+  size: string;
+  price: number;
+  fillWeight: string;
+  totalWeight?: string;
+  insulationLevel: string;
+  articleNumber: string;
 }
 
 export interface DuvetSpecifications {
-  material: string;
+  type: string; // e.g., "Sommerdyne", "Helårsdyne"
+  duvetType: string; // e.g., "Enkeltdyne"
+  fillType: string; // e.g., "Moskusdundyne"
   filling: string;
-  fillWeight: string;
+  fillPower: number;
+  casing: string;
+  construction: string;
+  color: string;
+  edging?: string;
+  packaging?: string;
+  quality: string;
+  insulationLevel: string; // e.g., "Sval", "Medium", "Varm"
+  warranty: string;
   dimensions: DuvetDimensions;
+  care: CareInstructions;
+  certifications: Certifications;
+}
+
+export interface ScoreBreakdown {
+  comfort: number;
+  temperature: number;
+  weight: number;
+  season: number;
+  price: number;
+  quality: number;
+  total: number;
 }
 
 export interface Duvet {
@@ -35,15 +82,20 @@ export interface Duvet {
   price: number;
   currency: string;
   image: string;
+  // Matching properties
   characteristics: DuvetCharacteristics;
   mood: string[];
   temperature: TemperaturePreference[];
   weightPreference: number;
   seasons: SeasonType[];
   priceLevel: number;
+  // Display properties
   features: string[];
   specifications: DuvetSpecifications;
+  variants?: DuvetVariant[];
+  // Computed properties
   matchingScore?: number;
+  scoreBreakdown?: ScoreBreakdown;
 }
 
 export interface DuvetsData {
