@@ -206,7 +206,7 @@
 
 .comparison-bar__info {
   flex: 1;
-  min-width: 0; // För att tillåta text truncation
+  min-width: 0;
 }
 
 .comparison-bar__name {
@@ -355,7 +355,7 @@
   justify-content: center;
 
   @include mobile {
-    order: -1; // Flytta knappen till toppen på mobil
+    order: -1;
   }
 }
 
@@ -581,7 +581,7 @@
   padding: 0 32px;
 
   @include mobile {
-    display: none; // Hide table on mobile, use cards instead
+    display: none;
   }
 }
 
