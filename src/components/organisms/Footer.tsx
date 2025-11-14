@@ -46,7 +46,7 @@ export const Footer = () => {
               <h3 className="footer__category-title">Vi tænker på dig</h3>
               <div className="footer__certifications">
                 <img 
-                  src="/certs.png" 
+                  src="/certs.webp" 
                   alt="Certificeringer" 
                   className="footer__certifications-image"
                 />
