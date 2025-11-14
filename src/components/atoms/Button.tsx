@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 type ButtonVariant = 'primary' | 'outline' | 'text';
 type IconPosition = 'left' | 'right';
 
-interface ButtonProps {
+export interface ButtonProps {
   children: ReactNode;
   onClick?: () => void;
   variant?: ButtonVariant;
@@ -12,6 +12,7 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   ariaLabel?: string;
+  className?: string;
 }
 
 export const Button = ({
@@ -22,12 +23,14 @@ export const Button = ({
   iconPosition = 'right',
   type = 'button',
   disabled = false,
-  ariaLabel
+  ariaLabel,
+  className
 }: ButtonProps) => {
   const classNames = [
     'button',
     `button--${variant}`,
-    icon && 'button--with-icon'
+    icon && 'button--with-icon',
+    className
   ].filter(Boolean).join(' ');
 
   return (

@@ -55,7 +55,7 @@ export function calculateDuvetMatches(duvets: Duvet[], stepData: StepData): Duve
     // 3. MAINTENANCE SCORE - Baseret på filling type og vedligeholdelsesegenskaber
     if (priorities.maintenance > 0) {
       // Dun er nemmere at vedligeholde end blanding
-      const maintenanceScore = duvet.characteristics.filling === 'dun' ? 100 : 70;
+      const maintenanceScore = duvet.characteristics.filling === 'down' ? 100 : 70;
       totalScore += maintenanceScore * priorities.maintenance;
     }
 

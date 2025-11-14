@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../atoms/Button';
-import { X, ArrowLeftRight, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { X, ChevronDown, CheckCircle2 } from 'lucide-react';
 import type { Duvet } from '../../types/duvet';
 
 interface ComparisonBarProps {
