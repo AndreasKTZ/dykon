@@ -1,7 +1,7 @@
 // Duvet types matching duvets.json structure
 
 export type WarmthLevel = 'light' | 'medium' | 'warm' | 'extra-warm';
-export type SeasonType = 'summer' | 'all-year' | 'winter' | '4-season';
+export type SeasonType = 'summer' | 'all-year' | 'winter';
 export type FillingType = 'down' | 'eiderdown' | 'feathers' | 'blend';
 export type TemperaturePreference = 'cool' | 'moderate' | 'warm';
 

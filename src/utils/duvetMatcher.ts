@@ -87,7 +87,7 @@ export function calculateDuvetMatches(duvets: Duvet[], stepData: StepData): Duve
 
     // Season match bonus
     if (userSeason) {
-      const seasonMatch = duvet.seasons.includes(userSeason as 'summer' | 'all-year' | 'winter' | '4-season');
+      const seasonMatch = duvet.seasons.includes(userSeason as 'summer' | 'all-year' | 'winter');
       if (seasonMatch) {
         totalScore += 50; // Bonus for season match
       }

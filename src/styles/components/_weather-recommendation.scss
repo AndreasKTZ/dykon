@@ -1,0 +1,59 @@
+.weather-recommendation {
+  background: linear-gradient(135deg, rgba(136, 3, 56, 0.05) 0%, rgba(136, 3, 56, 0.02) 100%);
+  border: 1px solid rgba(136, 3, 56, 0.1);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: $font-secondary;
+  }
+
+  &__temp {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-primary;
+  }
+
+  &__location {
+    font-size: 14px;
+    color: $color-text-secondary;
+  }
+
+  &__suggestion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-primary;
+    font-size: 15px;
+    color: $color-text-primary;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    color: $color-primary;
+  }
+}
+
+// Styling for weather container in option-boxes
+.option-boxes__weather {
+  margin-top: 24px;
+}
+

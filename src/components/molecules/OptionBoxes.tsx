@@ -21,6 +21,7 @@ interface OptionBoxesProps {
   onSelect?: (id: string) => void;
   showAudioButton?: boolean;
   stepId?: string;
+  weatherRecommendation?: ReactNode;
 }
 
 export const OptionBoxes = ({ 
@@ -31,7 +32,8 @@ export const OptionBoxes = ({
   onChange,
   onSelect, 
   showAudioButton = true, 
-  stepId 
+  stepId,
+  weatherRecommendation
 }: OptionBoxesProps) => {
   const [internalSelectedId, setInternalSelectedId] = useState<string | null>(null);
   const { isEnabled, toggleAudio, updateSoundFromChoice } = useAudio();
@@ -69,6 +71,11 @@ export const OptionBoxes = ({
           )}
         </div>
       </div>
+      {weatherRecommendation && (
+        <div className="option-boxes__weather">
+          {weatherRecommendation}
+        </div>
+      )}
       <div className="option-boxes__grid">
         {options.map((option) => (
           <OptionCard

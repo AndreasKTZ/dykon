@@ -5,11 +5,15 @@ import { ImageSelection } from './components/molecules/ImageSelection'
 import { OptionBoxes } from './components/molecules/OptionBoxes'
 import { RangeSlider } from './components/molecules/RangeSlider'
 import { PointsArranger } from './components/molecules/PointsArranger'
+import { WeatherRecommendation } from './components/molecules/WeatherRecommendation'
 import { AudioProvider } from './contexts/AudioContext'
+import { WeatherProvider, useWeather } from './contexts/WeatherContext'
 import { Snowflake, CloudRain, Sun, Feather, DollarSign, Award } from 'lucide-react'
 import './styles/main.scss'
 
-function App() {
+function AppContent() {
+  const { weather } = useWeather();
+
   const steps = [
     {
       id: 'stemning',
@@ -70,6 +74,15 @@ function App() {
             { id: 'all-year', icon: <CloudRain />, title: 'Hele året', description: 'Komfort året rundt' },
             { id: 'winter', icon: <Snowflake />, title: 'Vinter', description: 'Varme til kolde nætter' }
           ]}
+          weatherRecommendation={
+            weather ? (
+              <WeatherRecommendation
+                temp={weather.temp}
+                location={weather.location}
+                suggestedSeason={weather.suggestedSeason}
+              />
+            ) : null
+          }
         />
       )
     },
@@ -109,14 +122,22 @@ function App() {
   ];
 
   return (
+    <div>
+      <Navigation />
+      <main>
+        <StepContainer steps={steps} />
+      </main>
+      <Footer />
+    </div>
+  )
+}
+
+function App() {
+  return (
     <AudioProvider>
-      <div>
-        <Navigation />
-        <main>
-          <StepContainer steps={steps} />
-        </main>
-        <Footer />
-      </div>
+      <WeatherProvider>
+        <AppContent />
+      </WeatherProvider>
     </AudioProvider>
   )
 }

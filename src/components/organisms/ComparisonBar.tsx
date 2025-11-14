@@ -49,8 +49,7 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
     const labels: Record<string, string> = {
       'summer': 'Sommer',
       'all-year': 'Hele året',
-      'winter': 'Vinter',
-      '4-season': '4-sæsoner'
+      'winter': 'Vinter'
     };
     return labels[season] || season;
   };
