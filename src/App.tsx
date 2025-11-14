@@ -20,10 +20,10 @@ function App() {
           subtitle="Forestil dig dit ideelle soveværelse – hvordan føles det, når du går i seng?"
           stepId="stemning"
           options={[
-            { id: 'cool', image: '/rooms/breeze.png', label: 'Kølig brise', icon: <Snowflake size={16} /> },
-            { id: 'natural', image: '/rooms/balance.png', label: 'Naturlig balance', icon: <Feather size={16} /> },
-            { id: 'soft', image: '/rooms/soft-comfort.png', label: 'Blød komfort', icon: <CloudRain size={16} /> },
-            { id: 'cozy', image: '/rooms/cozy-warmth.png', label: 'Hyggelig varme', icon: <Sun size={16} /> }
+            { id: 'cool', image: '/rooms/breeze.webp', label: 'Kølig brise', icon: <Snowflake size={16} /> },
+            { id: 'natural', image: '/rooms/balance.webp', label: 'Naturlig balance', icon: <Feather size={16} /> },
+            { id: 'soft', image: '/rooms/soft-comfort.webp', label: 'Blød komfort', icon: <CloudRain size={16} /> },
+            { id: 'cozy', image: '/rooms/cozy-warmth.webp', label: 'Hyggelig varme', icon: <Sun size={16} /> }
           ]}
         />
       )

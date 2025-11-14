@@ -11,7 +11,7 @@ export const IntroScreen = ({ onStart, onViewProducts }: IntroScreenProps) => {
     <div className="intro-screen">
       <div className="intro-screen__image-section">
         <img 
-          src="/clouds.png" 
+          src="/clouds.webp" 
           alt="Find din ideelle dyne" 
           className="intro-screen__image"
         />
