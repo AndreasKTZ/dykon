@@ -4,6 +4,10 @@
   border-radius: 8px;
   padding: $spacing-container-padding;
 
+  @include mobile {
+    padding: 24px;
+  }
+
   &__header {
     margin-bottom: 32px;
   }
