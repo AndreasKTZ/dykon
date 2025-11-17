@@ -7,13 +7,17 @@ interface ImageCardProps {
   icon?: ReactNode;
   isSelected?: boolean;
   onClick?: () => void;
+  roomId?: string;
 }
 
-export const ImageCard = ({ image, label, icon, isSelected, onClick }: ImageCardProps) => {
-  const { playClick } = useAudio();
+export const ImageCard = ({ image, label, icon, isSelected, onClick, roomId }: ImageCardProps) => {
+  const { playClick, playAmbience } = useAudio();
 
   const handleClick = () => {
     playClick('option');
+    if (roomId) {
+      playAmbience(roomId);
+    }
     onClick?.();
   };
 

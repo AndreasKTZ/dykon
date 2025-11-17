@@ -34,8 +34,14 @@ export function calculateDuvetMatches(duvets: Duvet[], stepData: StepData): Duve
     quality: totalPoints > 0 ? (userPriorities['quality'] || 0) : 1.67,
   };
 
+  // Konverter budget slider til acceptable prisniveauer
+  const userPriceLevel = 1 + (userBudgetLevel / 100) * 2; // 1-3 range
+
+  // Ikke filtrér duvets helt væk - lad scoring håndtere det i stedet
+  const filteredDuvets = duvets;
+
   // Beregn score for hver dyne
-  const scoredDuvets = duvets.map(duvet => {
+  const scoredDuvets = filteredDuvets.map(duvet => {
     let totalScore = 0;
 
     // 1. COMFORT SCORE - Match mellem brugerens stemning og dyne mood
@@ -48,8 +54,13 @@ export function calculateDuvetMatches(duvets: Duvet[], stepData: StepData): Duve
     // 2. TEMPERATURE SCORE - Match mellem brugerens temperatur præference og dyne
     if (userTemperature && priorities.temperature > 0) {
       const tempMatch = duvet.temperature.includes(userTemperature);
-      const temperatureScore = tempMatch ? 100 : 30;
+      const temperatureScore = tempMatch ? 100 : 10; // Kraftig straf for mismatch
       totalScore += temperatureScore * priorities.temperature;
+    }
+
+    // KRITISK: Straf duvets der ikke matcher temperatur præference
+    if (userTemperature && !duvet.temperature.includes(userTemperature)) {
+      totalScore -= 150; // Store penalty for temperature mismatch
     }
 
     // 3. MAINTENANCE SCORE - Baseret på filling type og vedligeholdelsesegenskaber
@@ -70,11 +81,19 @@ export function calculateDuvetMatches(duvets: Duvet[], stepData: StepData): Duve
 
     // 5. PRICE SCORE - Inversed distance mellem budget niveau og pris niveau
     if (priorities.price > 0) {
-      // Konverter budget slider (0-100) til prisniveau (1-3)
-      const userPriceLevel = 1 + (userBudgetLevel / 100) * 2; // 1-3
       const priceDifference = Math.abs(userPriceLevel - duvet.priceLevel);
-      const priceScore = 100 - (priceDifference / 2) * 50; // Max afvigelse er 2, giv 0-100 score
+      const priceScore = 100 - (priceDifference / 2) * 60; // Moderat straf for prisforskel
       totalScore += Math.max(0, priceScore) * priorities.price;
+    }
+
+    // Ekstra budget håndtering - bonus/straf baseret på budget match
+    const priceDifference = duvet.priceLevel - userPriceLevel;
+    if (priceDifference <= 0) {
+      // Inden for budget - giv bonus
+      totalScore += 80; // Bonus for at være inden for budget
+    } else if (priceDifference > 0) {
+      // Over budget - giv straf, men ikke for hårdt
+      totalScore -= priceDifference * 50; // Moderat straf for at være over budget
     }
 
     // 6. QUALITY SCORE - Baseret på fill power, certifications (alle har samme)
@@ -89,7 +108,9 @@ export function calculateDuvetMatches(duvets: Duvet[], stepData: StepData): Duve
     if (userSeason) {
       const seasonMatch = duvet.seasons.includes(userSeason as 'summer' | 'all-year' | 'winter');
       if (seasonMatch) {
-        totalScore += 50; // Bonus for season match
+        totalScore += 100; // Stor bonus for season match
+      } else {
+        totalScore -= 80; // Straf for season mismatch
       }
     }
 

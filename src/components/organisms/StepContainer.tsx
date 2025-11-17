@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 import { calculateDuvetMatches } from '../../utils/duvetMatcher';
 import duvetsData from '../../data/duvets.json';
 import type { Duvet } from '../../types/duvet';
+import { useAudio } from '../../contexts/AudioContext';
 
 interface Step {
   id: string;
@@ -29,6 +30,7 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
   const [stepData, setStepData] = useState<StepData>({});
   const [showResults, setShowResults] = useState(false);
   const [matchedDuvets, setMatchedDuvets] = useState<Duvet[]>([]);
+  const { stopAmbience } = useAudio();
 
   const isIntro = currentStepIndex === -1;
   const currentStep = isIntro ? null : steps[currentStepIndex];
@@ -51,6 +53,7 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
     setStepData({}); // Reset all collected data
     setShowResults(false);
     setMatchedDuvets([]);
+    stopAmbience(); // Stop ambience when resetting
   };
 
   const handleStepDataChange = (stepId: string, data: unknown) => {

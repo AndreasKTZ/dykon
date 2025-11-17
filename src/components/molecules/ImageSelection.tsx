@@ -71,6 +71,7 @@ export const ImageSelection = ({
             icon={option.icon}
             isSelected={selectedId === option.id}
             onClick={() => handleSelect(option.id)}
+            roomId={option.id}
           />
         ))}
       </div>
