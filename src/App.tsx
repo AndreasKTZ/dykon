@@ -22,7 +22,6 @@ function AppContent() {
         <ImageSelection
           title="Hvilket rum ville du helst sove i?"
           subtitle="Forestil dig dit ideelle soveværelse – hvordan føles det, når du går i seng?"
-          stepId="stemning"
           options={[
             { id: 'cool', image: '/rooms/breeze.webp', label: 'Kølig brise', icon: <Snowflake size={16} /> },
             { id: 'natural', image: '/rooms/balance.webp', label: 'Naturlig balance', icon: <Feather size={16} /> },
@@ -39,7 +38,6 @@ function AppContent() {
         <OptionBoxes
           title="Hvordan har du det bedst, når du skal sove?"
           subtitle="Nogle kan bedst lide frisk luft, andre foretrækker at have det lunt og trygt."
-          stepId="temperatur"
           options={[
             { id: 'cool', icon: <Snowflake />, title: 'Frisk og køligt', description: 'Foretrækker en køligere søvn' },
             { id: 'moderate', icon: <CloudRain />, title: 'Behageligt tempereret', description: 'Neutral og afbalanceret' },
@@ -68,7 +66,6 @@ function AppContent() {
         <OptionBoxes
           title="Hvilken sæson leder du efter dyne til?"
           subtitle="Lad os finde den perfekte dyne til årstiden."
-          stepId="sæson"
           options={[
             { id: 'summer', icon: <Sun />, title: 'Sommer', description: 'Til varme nætter' },
             { id: 'all-year', icon: <CloudRain />, title: 'Hele året', description: 'Komfort året rundt' },

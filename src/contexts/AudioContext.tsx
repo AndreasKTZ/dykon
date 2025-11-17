@@ -1,114 +1,52 @@
 import { createContext, useContext, useState, useEffect, useRef } from 'react';
 import type { ReactNode } from 'react';
 
+export type ClickType = 'button' | 'option';
+
 interface AudioContextType {
   isEnabled: boolean;
   toggleAudio: () => void;
-  playSound: (soundId: string) => void;
-  stopSound: (soundId: string) => void;
-  stopAllSounds: () => void;
-  updateSoundFromChoice: (stepId: string, choiceId: string) => void;
+  playClick: (type?: ClickType) => void;
 }
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
-// Mapping af valg til lyde
-const SOUND_MAP: Record<string, string> = {
-  // Stemning valg
-  'stemning-cool': '/sounds/wind.mp3',
-  'stemning-natural': '/sounds/nature.mp3',
-  'stemning-soft': '/sounds/soft-rain.mp3',
-  'stemning-cozy': '/sounds/fireplace.mp3',
-  
-  // Temperatur valg
-  'temperatur-cold': '/sounds/winter.mp3',
-  'temperatur-balanced': '/sounds/ambient.mp3',
-  'temperatur-warm': '/sounds/summer-night.mp3',
-  
-  // Sæson valg
-  'sæson-summer': '/sounds/summer-night.mp3',
-  'sæson-all-year': '/sounds/ambient.mp3',
-  'sæson-winter': '/sounds/winter.mp3',
-};
-
 export const AudioProvider = ({ children }: { children: ReactNode }) => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const [currentSound, setCurrentSound] = useState<string | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isEnabled, setIsEnabled] = useState(true);
+  const clickAudioRef = useRef<HTMLAudioElement | null>(null);
+  const secondaryClickAudioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Opret audio element
-    audioRef.current = new Audio();
-    audioRef.current.loop = true;
-    audioRef.current.volume = 0.05; // Subtil lydstyrke
+    clickAudioRef.current = new Audio('/sounds/click.mp3');
+    clickAudioRef.current.volume = 0.15;
+
+    secondaryClickAudioRef.current = new Audio('/sounds/click.m4a');
+    secondaryClickAudioRef.current.volume = 0.12;
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
+      clickAudioRef.current = null;
+      secondaryClickAudioRef.current = null;
     };
   }, []);
-
-  useEffect(() => {
-    if (!audioRef.current) return;
-
-    if (isEnabled && currentSound) {
-      const soundFile = SOUND_MAP[currentSound];
-      if (soundFile) {
-        audioRef.current.src = soundFile;
-        audioRef.current.play().catch(err => {
-          console.log('Audio playback failed:', err);
-        });
-      }
-    } else {
-      audioRef.current.pause();
-    }
-  }, [isEnabled, currentSound]);
 
   const toggleAudio = () => {
     setIsEnabled(prev => !prev);
   };
 
-  const playSound = (soundId: string) => {
+  const playClick = (type: ClickType = 'button') => {
+    if (!isEnabled) return;
+    
+    const audioRef = type === 'button' ? clickAudioRef : secondaryClickAudioRef;
     if (!audioRef.current) return;
     
-    const soundFile = SOUND_MAP[soundId];
-    if (soundFile && isEnabled) {
-      audioRef.current.src = soundFile;
-      audioRef.current.play().catch(err => {
-        console.log('Audio playback failed:', err);
-      });
-    }
-  };
-
-  const stopSound = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-    }
-  };
-
-  const stopAllSounds = () => {
-    stopSound();
-    setCurrentSound(null);
-  };
-
-  const updateSoundFromChoice = (stepId: string, choiceId: string) => {
-    const soundKey = `${stepId}-${choiceId}`;
-    setCurrentSound(soundKey);
+    audioRef.current.currentTime = 0;
+    audioRef.current.play().catch(err => {
+      console.log(`Click sound failed:`, err);
+    });
   };
 
   return (
-    <AudioContext.Provider
-      value={{
-        isEnabled,
-        toggleAudio,
-        playSound,
-        stopSound,
-        stopAllSounds,
-        updateSoundFromChoice,
-      }}
-    >
+    <AudioContext.Provider value={{ isEnabled, toggleAudio, playClick }}>
       {children}
     </AudioContext.Provider>
   );

@@ -20,7 +20,6 @@ interface OptionBoxesProps {
   onChange?: (id: string) => void;
   onSelect?: (id: string) => void;
   showAudioButton?: boolean;
-  stepId?: string;
   weatherRecommendation?: ReactNode;
 }
 
@@ -31,24 +30,18 @@ export const OptionBoxes = ({
   value,
   onChange,
   onSelect, 
-  showAudioButton = true, 
-  stepId,
+  showAudioButton = true,
   weatherRecommendation
 }: OptionBoxesProps) => {
   const [internalSelectedId, setInternalSelectedId] = useState<string | null>(null);
-  const { isEnabled, toggleAudio, updateSoundFromChoice } = useAudio();
+  const { isEnabled, toggleAudio } = useAudio();
 
-  // Use controlled value if provided, otherwise use internal state
   const selectedId = value !== undefined ? value : internalSelectedId;
 
   const handleSelect = (id: string) => {
     setInternalSelectedId(id);
     onChange?.(id);
     onSelect?.(id);
-    
-    if (stepId) {
-      updateSoundFromChoice(stepId, id);
-    }
   };
 
   return (

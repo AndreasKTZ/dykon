@@ -34,7 +34,7 @@ const fetchWeatherData = async (): Promise<WeatherInfo | null> => {
     }
     
     const geoData: GeolocationResponse = await geoResponse.json();
-    const { latitude, longitude, city, country_name } = geoData;
+    const { latitude, longitude, city } = geoData;
 
     // Step 2: Get weather data from Open-Meteo
     const weatherResponse = await fetch(
@@ -52,7 +52,7 @@ const fetchWeatherData = async (): Promise<WeatherInfo | null> => {
 
     return {
       temp,
-      location: `${city}, ${country_name}`,
+      location: `${city}`,
       condition: temp < 15 ? 'cold' : temp > 23 ? 'hot' : 'moderate',
       suggestedSeason
     };

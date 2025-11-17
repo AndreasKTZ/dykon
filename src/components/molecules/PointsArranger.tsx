@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { ReactNode } from 'react';
 import { Minus, Plus, Volume2 } from 'lucide-react';
 import { Button } from '../atoms/Button';
+import { useAudio } from '../../contexts/AudioContext';
 
 interface PointOption {
   id: string;
@@ -29,17 +30,18 @@ export const PointsArranger = ({
   onChange,
   showAudioButton = false
 }: PointsArrangerProps) => {
+  const { playClick } = useAudio();
   const [internalDistribution, setInternalDistribution] = useState<Record<string, number>>(
     options.reduce((acc, opt) => ({ ...acc, [opt.id]: 0 }), {})
   );
 
-  // Use controlled value if provided, otherwise use internal state
   const distribution = controlledValue !== undefined ? controlledValue : internalDistribution;
   const usedPoints = Object.values(distribution).reduce((sum, val) => sum + val, 0);
   const remainingPoints = totalPoints - usedPoints;
 
   const handleIncrement = (id: string) => {
     if (remainingPoints > 0) {
+      playClick('option');
       const newDistribution = { ...distribution, [id]: distribution[id] + 1 };
       setInternalDistribution(newDistribution);
       onChange?.(newDistribution);
@@ -48,6 +50,7 @@ export const PointsArranger = ({
 
   const handleDecrement = (id: string) => {
     if (distribution[id] > 0) {
+      playClick('option');
       const newDistribution = { ...distribution, [id]: distribution[id] - 1 };
       setInternalDistribution(newDistribution);
       onChange?.(newDistribution);

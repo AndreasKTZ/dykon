@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useAudio } from '../../contexts/AudioContext';
 
 type ButtonVariant = 'primary' | 'outline' | 'text';
 type IconPosition = 'left' | 'right';
@@ -26,6 +27,13 @@ export const Button = ({
   ariaLabel,
   className
 }: ButtonProps) => {
+  const { playClick } = useAudio();
+
+  const handleClick = () => {
+    playClick('button');
+    onClick?.();
+  };
+
   const classNames = [
     'button',
     `button--${variant}`,
@@ -37,7 +45,7 @@ export const Button = ({
     <button
       type={type}
       className={classNames}
-      onClick={onClick}
+      onClick={handleClick}
       disabled={disabled}
       aria-label={ariaLabel}
     >

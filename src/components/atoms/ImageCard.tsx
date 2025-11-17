@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useAudio } from '../../contexts/AudioContext';
 
 interface ImageCardProps {
   image: string;
@@ -9,10 +10,17 @@ interface ImageCardProps {
 }
 
 export const ImageCard = ({ image, label, icon, isSelected, onClick }: ImageCardProps) => {
+  const { playClick } = useAudio();
+
+  const handleClick = () => {
+    playClick('option');
+    onClick?.();
+  };
+
   return (
     <button
       className={`image-card ${isSelected ? 'image-card--selected' : ''}`}
-      onClick={onClick}
+      onClick={handleClick}
       type="button"
     >
       <div className="image-card__image-wrapper">

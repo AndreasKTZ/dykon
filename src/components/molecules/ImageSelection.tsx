@@ -20,7 +20,6 @@ interface ImageSelectionProps {
   onChange?: (id: string) => void;
   onSelect?: (id: string) => void;
   showAudioButton?: boolean;
-  stepId?: string;
 }
 
 export const ImageSelection = ({ 
@@ -30,23 +29,17 @@ export const ImageSelection = ({
   value,
   onChange,
   onSelect, 
-  showAudioButton = true, 
-  stepId 
+  showAudioButton = true
 }: ImageSelectionProps) => {
   const [internalSelectedId, setInternalSelectedId] = useState<string | null>(null);
-  const { isEnabled, toggleAudio, updateSoundFromChoice } = useAudio();
+  const { isEnabled, toggleAudio } = useAudio();
 
-  // Use controlled value if provided, otherwise use internal state
   const selectedId = value !== undefined ? value : internalSelectedId;
 
   const handleSelect = (id: string) => {
     setInternalSelectedId(id);
     onChange?.(id);
     onSelect?.(id);
-    
-    if (stepId) {
-      updateSoundFromChoice(stepId, id);
-    }
   };
 
   return (
