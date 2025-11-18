@@ -8,6 +8,7 @@ interface WeatherContextType {
 
 const WeatherContext = createContext<WeatherContextType | undefined>(undefined);
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useWeather = () => {
   const context = useContext(WeatherContext);
   if (!context) {

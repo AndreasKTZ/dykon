@@ -263,24 +263,23 @@ function SeasonStep() {
 }
 ```
 
-**Data kilde**:
-- Bruger browser geolocation API
-- Kalder vejr-API (wttr.in) med brugerens koordinater
-- Fallback hvis geolocation ikke er tilladt
+**Data kilder**:
+- **ipapi.co** - IP-baseret geolocation (henter by og koordinater)
+- **Open-Meteo API** - Vejrdata baseret på koordinater
+- Ingen fallback hvis API'erne fejler (anbefaling vises ikke)
 
 ## Known issues / Limitations
 
 ### Aktuelle begrænsninger
 
 1. **Vejr API**
-   - Kræver bruger tilladelse til geolocation
-   - Hvis brugeren afviser, vises ingen vejranbefaling
-   - Afhænger af ekstern service (wttr.in)
+   - Bruger IP-baseret geolocation (kræver ikke brugertilladelse)
+   - Hvis API'erne fejler, vises ingen vejranbefaling
+   - Afhænger af eksterne services (ipapi.co og Open-Meteo API)
 
 2. **Browser support**
    - Kræver moderne browser med ES6+ support
    - Audio playback kan kræve brugerinteraktion (browser policy)
-   - Geolocation virker ikke på usikre (ikke-HTTPS) forbindelser i produktion
 
 3. **Data**
    - Duvet database er statisk (JSON fil)
