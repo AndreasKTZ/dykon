@@ -241,7 +241,7 @@ Henter lokalt vejr og foreslår passende sæson.
 - `weather.suggestedSeason` - Anbefalet sæson baseret på temperatur
   - < 15°C → "winter"
   - 15-22°C → "all-year"
-  - > 22°C → "summer"
+  - \> 22°C → "summer"
 
 **Brug**:
 ```typescript
