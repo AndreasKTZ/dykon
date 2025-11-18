@@ -1,106 +1,106 @@
 # Dykon - Duvet Finder Application
 
-En moderne webapplikation bygget med React, TypeScript, Vite og SCSS til at hjælpe brugere med at finde den perfekte dyne.
+En interaktiv web-app til at hjælpe brugere med at finde den perfekte dyne baseret på deres præferencer og behov.
 
-## Kom i gang
+## Tech Stack
 
-### Installation
+- **React 19** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **SCSS** - Styling med modulær arkitektur
+- **Lucide React** - Icons
+
+## Features
+
+- 🎯 **Guidet flow** - 5-trins vejledning til at finde den perfekte dyne
+- 🌡️ **Vejrintegration** - Automatisk sæsonanbefaling baseret på lokal vejrdata
+- 🎨 **Visuel udvælgelse** - Billedbaserede stemningsvalg med ambient lyd
+- 🔊 **Audio feedback** - Lydeffekter og stemningslyde for bedre brugeroplevelse
+- 📊 **Matchningsalgoritme** - Beregner match score baseret på brugerpræferencer
+- 🔄 **Sammenligning** - Side-by-side sammenligning af to dyner
+- ♿ **Tilgængelig** - Tastaturnavigation og ARIA-labels
+
+## Installation
 
 ```bash
 npm install
 ```
 
-### Kør udviklerserver
+## Development
 
 ```bash
+# Start development server
 npm run dev
-```
 
-### Build til produktion
-
-```bash
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
 ```
 
-## Projekt struktur
+## Project Structure
 
-Dette projekt følger **Atomic Design** principper:
+Projektet følger **Atomic Design** principper:
 
 ```
 src/
 ├── components/
-│   ├── atoms/          # Basale UI-elementer (buttons, icons, inputs)
-│   ├── molecules/      # Simple kombinationer af atoms
-│   ├── organisms/      # Komplekse komponenter som Navigation
-│   ├── templates/      # Layout strukturer
-│   └── pages/          # Komplette sider
-├── styles/
-│   ├── abstracts/      # Variables, mixins, functions
-│   ├── base/          # Reset, typography
-│   ├── components/    # Komponent-specifikke styles
-│   ├── layout/        # Layout-specifikke styles
-│   └── pages/         # Side-specifikke styles
-├── types/             # TypeScript type definitions
-└── data/              # JSON data filer
+│   ├── atoms/          # Små genanvendelige komponenter (Button, ImageCard)
+│   ├── molecules/      # Sammensatte komponenter (ProgressBar, RangeSlider)
+│   └── organisms/      # Komplekse komponenter (Navigation, Results, StepContainer)
+├── contexts/           # React contexts (Audio, Weather)
+├── data/              # JSON datakilde (duvets.json)
+├── styles/            # SCSS moduler og partials
+├── types/             # TypeScript interfaces
+└── utils/             # Helper funktioner (duvetMatcher)
 ```
 
-## Komponenter
+### Atomic Design Levels
 
-### Navigation
+- **Atoms**: Buttons, icons, inputs, text elements
+- **Molecules**: Duvet card, question card, progress bar
+- **Organisms**: Step view, results list, comparison module
 
-Navigation-komponenten består af:
+## Data Flow
 
-**Top bar:**
-- Telefon og email kontakt information (venstre)
-- Sprogvælger (højre)
-- Baggrund: #EFECE9
-- 8px padding top/bottom
+1. **User Input** → Brugeren besvarer 5 trin med spørgsmål
+2. **State Management** → Svar gemmes i centraliseret state via contexts
+3. **Matching Algorithm** → `duvetMatcher.ts` beregner match score for hver dyne
+4. **Results** → Filtrerede og sorterede dyner vises med forklaringer
+5. **Comparison** → Brugeren kan sammenligne op til 2 dyner side-by-side
 
-**Main navigation:**
-- Centreret logo (højde: 50px)
-- Navigation links på begge sider af logo
-- Max bredde: 920px
-- Baggrund: #FFFFFF
-- Border: 1px solid #DAE0E7
-- 18px padding top/bottom
+## Step Flow
 
-```tsx
-import { Navigation } from './components/organisms/Navigation'
+1. **Stemning** - Billedvalg af ideelt soveværelse
+2. **Temperatur** - Præference for søvntemperatur
+3. **Vægt og fylde** - Let vs. tung dyne
+4. **Sæson** - Sommer, helår eller vinter (med vejranbefaling)
+5. **Budget** - Prisniveau og prioritering af funktioner
 
-function App() {
-  return <Navigation />
-}
-```
+## Key Files
 
-## Farver
+- `src/App.tsx` - Main app structure og step definitions
+- `src/data/duvets.json` - Duvet database med alle produkter
+- `src/utils/duvetMatcher.ts` - Matching algorithm
+- `src/types/duvet.ts` - TypeScript interfaces for duvet data
+- `src/contexts/` - Audio og weather contexts
 
-Projektet bruger følgende primære farver:
+## Styling
 
-- Primary: `#880338` (ikoner, hover states)
-- Top bar background: `#EFECE9`
-- Top bar text: `#333D43`
-- Navigation links: `#495B66`
-- Navigation background: `#FFFFFF`
-- Navigation border: `#DAE0E7`
+SCSS er organiseret i:
 
-## Typografi
+- `abstracts/` - Variables, mixins, functions
+- `base/` - Reset, typography
+- `components/` - Component-specific styles
+- `layout/` - Layout structures
+- `pages/` - Page-specific styles
 
-Projektet bruger **EB Garamond** som primær font.
+Mobile-first design med BEM naming convention.
 
-## Data flow
+## Browser Support
 
-1. Duvet data indlæses fra JSON fil i `/data`
-2. Rå data mappes til interne modeller
-3. Bruger besvarer spørgsmål gennem guided flow (3-5 steps)
-4. Svar gemmes i centraliseret state (context eller parent page)
-5. Match score beregnes baseret på præferencer
-6. Filtrerede og sorterede resultater vises
-7. Bruger kan sammenligne op til 2 dyner side-by-side
-
-## Teknologier
-
-- **React 19** - UI framework
-- **TypeScript** - Type safety
-- **Vite** - Build tool og dev server
-- **SCSS** - Styling med variables og mixins
-- **Lucide React** - Icon library
+Modern browsers med ES6+ support.
