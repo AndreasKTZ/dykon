@@ -2,105 +2,339 @@
 
 En interaktiv web-app til at hjælpe brugere med at finde den perfekte dyne baseret på deres præferencer og behov.
 
-## Tech Stack
+## Tech stack
 
-- **React 19** - UI framework
-- **TypeScript** - Type safety
-- **Vite** - Build tool
-- **SCSS** - Styling med modulær arkitektur
-- **Lucide React** - Icons
+- **React 19** - UI framework til at bygge brugergrænsefladen
+- **TypeScript** - Tilføjer type safety til JavaScript
+- **Vite** - Hurtig development server og build tool
+- **SCSS** - Avanceret CSS med modulær arkitektur
+- **Lucide React** - Icon bibliotek
 
-## Features
+## Accessibility considerations
 
-- 🎯 **Guidet flow** - 5-trins vejledning til at finde den perfekte dyne
-- 🌡️ **Vejrintegration** - Automatisk sæsonanbefaling baseret på lokal vejrdata
-- 🎨 **Visuel udvælgelse** - Billedbaserede stemningsvalg med ambient lyd
-- 🔊 **Audio feedback** - Lydeffekter og stemningslyde for bedre brugeroplevelse
-- 📊 **Matchningsalgoritme** - Beregner match score baseret på brugerpræferencer
-- 🔄 **Sammenligning** - Side-by-side sammenligning af to dyner
-- ♿ **Tilgængelig** - Tastaturnavigation og ARIA-labels
+Applikationen er designet med tilgængelighed i fokus:
 
-## Installation
+- ✅ **Tastaturnavigation** - Alle interaktive elementer kan navigeres med tastatur (Tab, Enter, Space)
+- ✅ **ARIA labels** - Skærmlæservenlige labels på ikoner og knapper
+- ✅ **Focus states** - Synlige fokusringe viser hvor du er med tastaturet
+- ✅ **Semantisk HTML** - Korrekt brug af HTML-elementer for bedre tilgængelighed
+- ✅ **Beskrivende labels** - Hjælpetekst og tydelige instruktioner gennem hele flowet
+
+## Installation and setup
+
+### Forudsætninger
+
+Du skal have følgende installeret på din computer:
+
+1. **Node.js** (version 18 eller nyere)
+   - Download fra [nodejs.org](https://nodejs.org/)
+   - Vælg LTS (Long Term Support) versionen
+   - Følg installationsvejledningen for dit operativsystem
+
+2. **Code editor (IDE)** (valgfrit, men anbefalet)
+   - [Visual Studio Code](https://code.visualstudio.com/) (anbefalet)
+   - Eller en anden editor du foretrækker
+
+### Trin-for-trin installation
+
+1. **Download projektet**
+   - Hent projektet fra [Github](https://github.com/AndreasKTZ/dykon) og udpak zip-filen
+
+2. **Åbn en terminal/kommandolinje**
+   
+   **Anbefalet: Brug Visual Studio Code's indbyggede terminal**
+   - Åbn projektmappen i VS Code (File → Open Folder)
+   - Gå til Terminal → New Terminal
+   - Terminalen åbner automatisk i projektmappen
+   
+   **Alternativ: Brug systemets terminal**
+   - **Windows**: Tryk Windows-tast + R, skriv `cmd`, tryk Enter
+   - **Mac**: Åbn Terminal fra Applications → Utilities
+   - **Linux**: Tryk Ctrl + Alt + T
+
+3. **Naviger til projektmappen**
+   
+   **Hvis du bruger VS Code's terminal**: Spring dette trin over - du er allerede i projektmappen! ✓
+   
+   **Hvis du bruger systemets terminal**:
+   ```bash
+   cd sti/til/dykon
+   ```
+   (Erstat `sti/til/dykon` med den faktiske sti til mappen)
+
+4. **Installer afhængigheder**
+   ```bash
+   npm install
+   ```
+   Dette kan tage et par minutter første gang. Node.js downloader alle nødvendige pakker.
+
+5. **Start udviklingsserveren**
+   ```bash
+   npm run dev
+   ```
+
+6. **Åbn applikationen**
+   - Din browser åbner automatisk, eller
+   - Åbn din browser og gå til `http://localhost:5173`
+   - Applikationen kører nu lokalt på din computer! 🎉
+
+### Andre kommandoer
 
 ```bash
-npm install
-```
-
-## Development
-
-```bash
-# Start development server
-npm run dev
-
-# Build for production
+# Byg til produktion
 npm run build
 
-# Preview production build
+# Se hvordan produktionsbygningen ser ud
 npm run preview
 
-# Lint code
+# Tjek koden for fejl
 npm run lint
 ```
 
-## Project Structure
+## Folder structure
 
-Projektet følger **Atomic Design** principper:
+Projektet følger **Atomic Design** principper for at holde koden organiseret og genanvendelig:
 
 ```
-src/
-├── components/
-│   ├── atoms/          # Små genanvendelige komponenter (Button, ImageCard)
-│   ├── molecules/      # Sammensatte komponenter (ProgressBar, RangeSlider)
-│   └── organisms/      # Komplekse komponenter (Navigation, Results, StepContainer)
-├── contexts/           # React contexts (Audio, Weather)
-├── data/              # JSON datakilde (duvets.json)
-├── styles/            # SCSS moduler og partials
-├── types/             # TypeScript interfaces
-└── utils/             # Helper funktioner (duvetMatcher)
+dykon/
+├── public/                 # Statiske filer (billeder, lyde, ikoner)
+│   ├── duvets/            # Produktbilleder af dyner
+│   ├── rooms/             # Stemningsbilleder til trin 1
+│   └── sounds/            # Lydeffekter og ambient lyde
+├── src/
+│   ├── components/
+│   │   ├── atoms/         # Små byggeklodser (Button, ImageCard, OptionCard)
+│   │   ├── molecules/     # Sammensatte komponenter (ProgressBar, RangeSlider, OptionBoxes)
+│   │   └── organisms/     # Komplekse sektioner (Navigation, Results, StepContainer)
+│   ├── contexts/          # Global state management
+│   │   ├── AudioContext.tsx      # Håndterer lydeffekter
+│   │   └── WeatherContext.tsx    # Henter og håndterer vejrdata
+│   ├── data/
+│   │   └── duvets.json    # Database med alle dyner og deres egenskaber
+│   ├── styles/            # SCSS styling opdelt i moduler
+│   │   ├── abstracts/     # Variables, mixins, functions
+│   │   ├── base/          # Reset og typografi
+│   │   ├── components/    # Component-specifikke styles
+│   │   ├── layout/        # Layout strukturer
+│   │   └── pages/         # Side-specifikke styles
+│   ├── types/             # TypeScript type definitions
+│   │   ├── duvet.ts       # Duvet data struktur
+│   │   └── weather.ts     # Weather data struktur
+│   ├── utils/
+│   │   └── duvetMatcher.ts    # Matchningsalgoritme til at finde den bedste dyne
+│   ├── App.tsx            # Hovedkomponent med step definitions
+│   └── main.tsx           # Entry point for applikationen
+├── package.json           # Projekt metadata og dependencies
+└── vite.config.ts         # Vite konfiguration
 ```
 
-### Atomic Design Levels
+### Atomic Design levels
 
-- **Atoms**: Buttons, icons, inputs, text elements
-- **Molecules**: Duvet card, question card, progress bar
-- **Organisms**: Step view, results list, comparison module
+- **Atoms**: Mindste byggeklodser (knapper, inputs, kort)
+- **Molecules**: Kombinationer af atoms (progress bar, slider, option boxes)
+- **Organisms**: Komplette sektioner (navigation, results list, step container)
 
-## Data Flow
+## How to use the app
 
-1. **User Input** → Brugeren besvarer 5 trin med spørgsmål
-2. **State Management** → Svar gemmes i centraliseret state via contexts
-3. **Matching Algorithm** → `duvetMatcher.ts` beregner match score for hver dyne
+### User flow
+
+Applikationen guider brugeren gennem 5 trin for at finde den perfekte dyne:
+
+1. **Introduktion**
+   - Velkomstskærm der forklarer hvordan vejlederen virker
+   - Bruger klikker "Start" for at begynde
+
+2. **Trin 1: Stemning**
+   - Visuel udvælgelse med 4 stemningsbilleder
+   - Bruger vælger det rum de helst vil sove i
+   - Ambient lyd starter når et billede vælges
+
+3. **Trin 2: Temperatur**
+   - 3 valgmuligheder: Frisk/køligt, Tempereret, Lunt/varmt
+   - Hjælper algoritmen med at matche varmeniveau
+
+4. **Trin 3: Vægt og fylde**
+   - Slider fra "Let og luftig" til "Fyldig og omsluttende"
+   - Bruger angiver præference på en skala
+
+5. **Trin 4: Sæson**
+   - Vælg mellem Sommer, Hele året, eller Vinter
+   - Vejrintegration viser automatisk anbefaling baseret på lokalt vejr
+
+6. **Trin 5: Budget og prioriteter**
+   - Budget slider fra Budget ($) til Luksus ($$$)
+   - Point fordeling (10 point) på: Komfort, Temperatur, Vedligehold, Materialer, Pris, Kvalitet
+
+7. **Resultater**
+   - Viser matchede dyner sorteret efter score
+   - Hver dyne viser match percentage og forklaring
+   - Bruger kan sammenligne op til 2 dyner side-by-side
+
+### Navigation
+
+- **Fremad/Tilbage knapper** - Naviger mellem trin
+- **Progress bar** - Viser hvor langt du er kommet
+- **Tastatur shortcuts**:
+  - Tab: Naviger mellem elementer
+  - Enter/Space: Vælg option eller klik knap
+  - Piltoste: Juster slider værdier
+
+### Data flow
+
+1. **User Input** → Brugeren besvarer spørgsmål gennem 5 trin
+2. **State Management** → Svar gemmes i centraliseret state via StepContainer
+3. **Matching Algorithm** → `duvetMatcher.ts` beregner match score for hver dyne baseret på:
+   - Stemning (mood)
+   - Temperatur præference
+   - Vægt præference
+   - Sæson
+   - Budget
+   - Prioriteter
 4. **Results** → Filtrerede og sorterede dyner vises med forklaringer
-5. **Comparison** → Brugeren kan sammenligne op til 2 dyner side-by-side
+5. **Comparison** → Bruger kan vælge 2 dyner til direkte sammenligning
 
-## Step Flow
+## Custom hooks explained
 
-1. **Stemning** - Billedvalg af ideelt soveværelse
-2. **Temperatur** - Præference for søvntemperatur
-3. **Vægt og fylde** - Let vs. tung dyne
-4. **Sæson** - Sommer, helår eller vinter (med vejranbefaling)
-5. **Budget** - Prisniveau og prioritering af funktioner
+### `useAudio()`
 
-## Key Files
+Håndterer alle lydeffekter i applikationen.
 
-- `src/App.tsx` - Main app structure og step definitions
-- `src/data/duvets.json` - Duvet database med alle produkter
-- `src/utils/duvetMatcher.ts` - Matching algorithm
-- `src/types/duvet.ts` - TypeScript interfaces for duvet data
-- `src/contexts/` - Audio og weather contexts
+**Placering**: `src/contexts/AudioContext.tsx`
 
-## Styling
+**Funktioner**:
+- `playClick(type)` - Afspil klik-lyd (type: 'button', 'option', 'slider')
+- `playAmbience(roomId)` - Start ambient baggrundslyd for valgt stemning
+- `stopAmbience()` - Stop ambient lyd med fade-out effekt
+- `toggleAudio()` - Slå lyd til/fra
+- `isEnabled` - Boolean der viser om lyd er aktiveret
 
-SCSS er organiseret i:
+**Brug**:
+```typescript
+import { useAudio } from './contexts/AudioContext';
 
-- `abstracts/` - Variables, mixins, functions
-- `base/` - Reset, typography
-- `components/` - Component-specific styles
-- `layout/` - Layout structures
-- `pages/` - Page-specific styles
+function MyComponent() {
+  const { playClick, isEnabled } = useAudio();
+  
+  const handleClick = () => {
+    playClick('button');
+    // Din logik her
+  };
+  
+  return <button onClick={handleClick}>Klik mig</button>;
+}
+```
 
-Mobile-first design med BEM naming convention.
+**Features**:
+- Lydvolumen er præ-indstillet for behagelig oplevelse
+- Fade-in/fade-out på ambient lyde
+- Automatisk cleanup når komponenten unmounter
 
-## Browser Support
+### `useWeather()`
 
-Modern browsers med ES6+ support.
+Henter lokalt vejr og foreslår passende sæson.
+
+**Placering**: `src/contexts/WeatherContext.tsx`
+
+**Funktioner**:
+- `weather.temp` - Aktuel temperatur i Celsius
+- `weather.location` - By/område navn
+- `weather.suggestedSeason` - Anbefalet sæson baseret på temperatur
+  - < 15°C → "winter"
+  - 15-22°C → "all-year"
+  - > 22°C → "summer"
+
+**Brug**:
+```typescript
+import { useWeather } from './contexts/WeatherContext';
+
+function SeasonStep() {
+  const { weather } = useWeather();
+  
+  if (weather) {
+    return (
+      <p>
+        Det er {weather.temp}°C i {weather.location}.
+        Vi anbefaler en {weather.suggestedSeason} dyne.
+      </p>
+    );
+  }
+  
+  return null;
+}
+```
+
+**Data kilde**:
+- Bruger browser geolocation API
+- Kalder vejr-API (wttr.in) med brugerens koordinater
+- Fallback hvis geolocation ikke er tilladt
+
+## Known issues / Limitations
+
+### Aktuelle begrænsninger
+
+1. **Vejr API**
+   - Kræver bruger tilladelse til geolocation
+   - Hvis brugeren afviser, vises ingen vejranbefaling
+   - Afhænger af ekstern service (wttr.in)
+
+2. **Browser support**
+   - Kræver moderne browser med ES6+ support
+   - Audio playback kan kræve brugerinteraktion (browser policy)
+   - Geolocation virker ikke på usikre (ikke-HTTPS) forbindelser i produktion
+
+3. **Data**
+   - Duvet database er statisk (JSON fil)
+   - Ingen backend integration endnu
+   - Priser og lagerstatus opdateres ikke dynamisk
+
+4. **Sammenligning**
+   - Kun 2 dyner kan sammenlignes ad gangen
+   - Sammenligning kræver at man er på resultat-siden
+
+5. **Sprog**
+   - Kun dansk sprog understøttet
+   - Ingen internationalisering (i18n) endnu
+
+## Future improvements
+
+### Planlagte forbedringer
+
+1. **Backend integration**
+   - Dynamisk dynelager og priser
+   - Bruger konti og gemte præferencer
+   - Order/købs funktionalitet
+
+2. **Flere features**
+   - Gem/del dine resultater via link
+   - Print funktion til resultatoversigt
+   - Filtrer resultater efter pris, mærke, etc.
+   - Sammenlign mere end 2 dyner samtidig
+
+3. **Internationalisering**
+   - Engelsk sprog
+   - Andre nordiske sprog
+   - Valutaomregning
+
+4. **Forbedret matching**
+   - Machine learning baseret på brugeradfærd
+   - Personlige anbefalinger baseret på tidligere valg
+   - A/B testing af spørgsmål for bedre match
+
+5. **Performance**
+   - Lazy loading af billeder
+   - Service worker for offline support
+   - Optimeret bundle størrelse
+
+6. **Analytics**
+   - Sporing af populære valg
+   - Conversion tracking
+   - User journey insights
+
+7. **Tilgængelighed**
+   - Bedre skærmlæser support
+   - High contrast mode
+   - Flere tastatur shortcuts
+
+### Bidrag
+
+Forslag til forbedringer er velkomne! Opret en issue eller pull request i repository.
