@@ -296,7 +296,7 @@ function SeasonStep() {
 
 ## Future improvements
 
-### Planlagte forbedringer
+### Mulige forbedringer i fremtiden
 
 1. **Backend integration**
    - Dynamisk dynelager og priser
@@ -314,26 +314,12 @@ function SeasonStep() {
    - Andre nordiske sprog
    - Valutaomregning
 
-4. **Forbedret matching**
-   - Machine learning baseret på brugeradfærd
-   - Personlige anbefalinger baseret på tidligere valg
-   - A/B testing af spørgsmål for bedre match
-
-5. **Performance**
+4. **Performance**
    - Lazy loading af billeder
    - Service worker for offline support
    - Optimeret bundle størrelse
 
-6. **Analytics**
+5. **Analytics**
    - Sporing af populære valg
    - Conversion tracking
    - User journey insights
-
-7. **Tilgængelighed**
-   - Bedre skærmlæser support
-   - High contrast mode
-   - Flere tastatur shortcuts
-
-### Bidrag
-
-Forslag til forbedringer er velkomne! Opret en issue eller pull request i repository.
