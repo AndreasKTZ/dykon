@@ -16,10 +16,10 @@ interface PriorityWeights {
 // Beregn match score baseret på brugerens svar og prioriteter
 export function calculateDuvetMatches(duvets: Duvet[], stepData: StepData): Duvet[] {
   // Udtræk brugerens svar
-  const userMood = stepData['stemning'] as string | undefined;
-  const userTemperature = stepData['temperatur'] as TemperaturePreference | undefined;
-  const userWeightPreference = (stepData['vægt-fylde'] as number) || 50;
-  const userSeason = stepData['sæson'] as string | undefined;
+  const userMood = stepData['mood'] as string | undefined;
+  const userTemperature = stepData['temperature'] as TemperaturePreference | undefined;
+  const userWeightPreference = (stepData['weight-fill'] as number) || 50;
+  const userSeason = stepData['season'] as string | undefined;
   const userBudgetLevel = (stepData['budget-price'] as number) || 50;
   const userPriorities = (stepData['budget-priorities'] as Record<string, number>) || {};
 

@@ -6,7 +6,7 @@
       "description": "Let sommerdyne i ANEMONE-serien med 90% europæiske moskusdun og bomuldscambric – oplagt til dig der vil have en let, sval og allergivenlig dyne.",
       "price": 1399,
       "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
+      "image": "/duvets/anemone-sval.jpg",
       "characteristics": {
         "warmth": "light",
         "weight": "light",
@@ -89,7 +89,7 @@
       "description": "Varm helårs-/vinterdyne i ANEMONE-serien med 90% moskusdun, kassettesyet og med tætvævet bomuldscambric.",
       "price": 1999,
       "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
+      "image": "/duvets/anemone-varm.jpg",
       "characteristics": {
         "warmth": "warm",
         "weight": "medium",
@@ -179,7 +179,7 @@
       "description": "Premium sommerdyne i TUSINDFRYD-serien med 100% hvide europæiske moskusdun, jacquardvævet bomuld og høj bæreevne 750.",
       "price": 2499,
       "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
+      "image": "/duvets/tusindfryd-sval.jpg",
       "characteristics": {
         "warmth": "light",
         "weight": "light",
@@ -270,7 +270,7 @@
       "description": "Varm luksusdyne med 100% moskusdun, kassettesyet og meget høj bæreevne (750) – til helårsbrug eller kolde soveværelser.",
       "price": 3699,
       "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
+      "image": "/duvets/tusindfryd-varm.jpg",
       "characteristics": {
         "warmth": "warm",
         "weight": "medium",
@@ -358,7 +358,7 @@
       "description": "Meget varm vinterdyne med højt moskusdunsindhold og kassettesyet konstruktion. Findes helt op til 240x220.",
       "price": 3999,
       "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
+      "image": "/duvets/tusindfryd-ekstravarm.jpg",
       "characteristics": {
         "warmth": "extra-warm",
         "weight": "heavy",
@@ -448,7 +448,7 @@
       "description": "Sval, allergivenlig moskusdyne med kølende/temperaturregulerende side og 90% moskusdun – til dig der gerne vil have lidt mere fyld end ANEMONE-sval.",
       "price": 2499,
       "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
+      "image": "/duvets/erantis-sval.jpg",
       "characteristics": {
         "warmth": "light",
         "weight": "light",
@@ -532,7 +532,7 @@
       "description": "Topmodellen med 100% islandske edderdun, kassettesyet og batist-bolster. Meget let men ekstremt varm.",
       "price": 24999,
       "currency": "DKK",
-      "image": "/duvets/placeholder.jpg",
+      "image": "/duvets/orkide-ekstravarm.jpg",
       "characteristics": {
         "warmth": "extra-warm",
         "weight": "light",

@@ -16,7 +16,7 @@ function AppContent() {
 
   const steps = [
     {
-      id: 'stemning',
+      id: 'mood',
       title: 'Stemning',
       content: (
         <ImageSelection
@@ -32,7 +32,7 @@ function AppContent() {
       )
     },
     {
-      id: 'temperatur',
+      id: 'temperature',
       title: 'Temperatur',
       content: (
         <OptionBoxes
@@ -47,7 +47,7 @@ function AppContent() {
       )
     },
     {
-      id: 'vægt-fylde',
+      id: 'weight-fill',
       title: 'Vægt og fylde',
       content: (
         <RangeSlider
@@ -55,12 +55,12 @@ function AppContent() {
           subtitle="Nogle elsker følelsen af en tung dyne, mens andre foretrækker en let og luftig følelse."
           leftLabel="Let og luftig"
           rightLabel="Fyldig og omsluttende"
-          stepId="vægt-fylde"
+          stepId="weight-fill"
         />
       )
     },
     {
-      id: 'sæson',
+      id: 'season',
       title: 'Sæson',
       content: (
         <OptionBoxes
