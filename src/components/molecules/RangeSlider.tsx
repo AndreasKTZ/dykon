@@ -34,7 +34,7 @@ export const RangeSlider = ({
   const trackRef = useRef<HTMLDivElement>(null);
   const { isEnabled, toggleAudio } = useAudio();
 
-  // Use controlled value if provided, otherwise use internal state
+  // Brug controlledValue hvis den er defineret, ellers bruger vi internalValue
   const value = controlledValue !== undefined ? controlledValue : internalValue;
   const percentage = ((value - min) / (max - min)) * 100;
 

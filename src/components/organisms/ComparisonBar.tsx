@@ -223,7 +223,7 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                 </div>
 
                 <div className="comparison-bar__mobile-row">
-                  <div className="comparison-bar__mobile-label">Fill Power</div>
+                  <div className="comparison-bar__mobile-label">Fyldeevne</div>
                   <div className="comparison-bar__mobile-values">
                     <div className={`comparison-bar__mobile-val ${isBetter(duvet1.characteristics.fillPower, duvet2.characteristics.fillPower) ? 'comparison-bar__mobile-val--better' : ''}`}>
                       {duvet1.characteristics.fillPower}
@@ -440,7 +440,7 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                   {duvet1.specifications.filling}
                   <br />
                   <span className="comparison-bar__detail">
-                    Fill power: {duvet1.characteristics.fillPower}
+                    Fyldeevne: {duvet1.characteristics.fillPower}
                   </span>
                 </div>
                 <div 
@@ -453,7 +453,7 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                   {duvet2.specifications.filling}
                   <br />
                   <span className="comparison-bar__detail">
-                    Fill power: {duvet2.characteristics.fillPower}
+                    Fyldeevne: {duvet2.characteristics.fillPower}
                   </span>
                 </div>
               </div>
@@ -473,7 +473,7 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                   {duvet1.specifications.casing}
                   <br />
                   <span className="comparison-bar__detail">
-                    Thread count: {duvet1.characteristics.threadCount}
+                    Trådtæthed: {duvet1.characteristics.threadCount}
                   </span>
                 </div>
                 <div 
@@ -486,7 +486,7 @@ export const ComparisonBar = ({ selectedDuvets, onRemoveDuvet }: ComparisonBarPr
                   {duvet2.specifications.casing}
                   <br />
                   <span className="comparison-bar__detail">
-                    Thread count: {duvet2.characteristics.threadCount}
+                    Trådtæthed: {duvet2.characteristics.threadCount}
                   </span>
                 </div>
               </div>

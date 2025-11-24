@@ -50,10 +50,10 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
 
   const goToIntro = () => {
     setCurrentStepIndex(-1);
-    setStepData({}); // Reset all collected data
+    setStepData({}); // Nulstil alle indsamlede data
     setShowResults(false);
     setMatchedDuvets([]);
-    stopAmbience(); // Stop ambience when resetting
+    stopAmbience(); // Stopper ambience, når nulstillingen foretages
   };
 
   const handleStepDataChange = (stepId: string, data: unknown) => {
@@ -64,10 +64,10 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
   };
 
   const isStepComplete = (stepId: string): boolean => {
-    // Check if this stepId has direct data
+    // Tjek om dette stepId har direkte data
     const directData = stepData[stepId];
     if (directData !== null && directData !== undefined) {
-      // For objects like PointsArranger, check if any points are distributed
+      // For objekter som PointsArranger, tjek om nogle point er fordelt
       if (typeof directData === 'object' && !Array.isArray(directData)) {
         return Object.values(directData as Record<string, unknown>).some(
           value => typeof value === 'number' && value > 0
@@ -76,15 +76,15 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
       return true;
     }
     
-    // Check if there are child steps with this prefix (for multi-component steps)
+    // Tjek om der er child steps med dette prefix (for trin med flere komponenter)
     const childSteps = Object.keys(stepData).filter(key => key.startsWith(stepId + '-'));
     if (childSteps.length > 0) {
-      // At least one child step should have valid data
+      // Mindst ét child step skal have gyldige data
       return childSteps.some(childKey => {
         const childData = stepData[childKey];
         if (childData === null || childData === undefined) return false;
         
-        // For PointsArranger, check if any points are distributed
+        // For PointsArranger, tjek om nogle point er fordelt
         if (typeof childData === 'object' && !Array.isArray(childData)) {
           return Object.values(childData as Record<string, unknown>).some(
             value => typeof value === 'number' && value > 0
@@ -106,7 +106,7 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
     window.open('https://jysk.dk/brands/flora-danica', '_blank', 'noopener,noreferrer');
   };
 
-  // Inject props into step content
+  // Inject props ind i step content
   const renderStepContent = (content: ReactNode, stepId: string) => {
     if (isValidElement(content)) {
       const element = content as ReactElement<{
@@ -117,7 +117,7 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
         onChange?: (value: unknown) => void;
       }>;
 
-      // Check if it's a wrapper div with multiple components
+      // Tjek om det er en wrapper div med flere komponenter
       if (element.props.className === 'step-content__wrapper') {
         const children = Array.isArray(element.props.children) 
           ? element.props.children 
@@ -232,10 +232,10 @@ export const StepContainer = ({ steps, showIntro = true }: StepContainerProps) =
                 variant="primary"
                 onClick={() => {
                   console.log('Collected data:', stepData);
-                  // Kør matching algorithm
+                  // Kør matching algoritme
                   const matches = calculateDuvetMatches(duvetsData.duvets as Duvet[], stepData);
                   
-                  // Log top duvets og deres scores
+                  // Log top duvets og deres point
                   console.log('=== TOP DUVET MATCHES ===');
                   matches.slice(0, 4).forEach((duvet, index) => {
                     console.log(`${index + 1}. ${duvet.name}`);

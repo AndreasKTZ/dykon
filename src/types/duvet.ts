@@ -1,4 +1,4 @@
-// Duvet types matching duvets.json structure
+// Duvet typer, der matcher duvets.json strukturen
 
 export type WarmthLevel = 'light' | 'medium' | 'warm' | 'extra-warm';
 export type SeasonType = 'summer' | 'all-year' | 'winter';
@@ -47,9 +47,9 @@ export interface DuvetVariant {
 }
 
 export interface DuvetSpecifications {
-  type: string; // e.g., "Sommerdyne", "Helårsdyne"
-  duvetType: string; // e.g., "Enkeltdyne"
-  fillType: string; // e.g., "Moskusdundyne"
+  type: string; // f.eks., "Sommerdyne", "Helårsdyne"
+  duvetType: string; // f.eks., "Enkeltdyne"
+  fillType: string; // f.eks., "Moskusdundyne"
   filling: string;
   fillPower: number;
   casing: string;
@@ -58,7 +58,7 @@ export interface DuvetSpecifications {
   edging?: string;
   packaging?: string;
   quality: string;
-  insulationLevel: string; // e.g., "Sval", "Medium", "Varm"
+  insulationLevel: string; // f.eks., "Sval", "Medium", "Varm"
   warranty: string;
   dimensions: DuvetDimensions;
   care: CareInstructions;

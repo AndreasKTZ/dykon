@@ -51,7 +51,7 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     };
   }, []);
 
-  // Pause/resume ambience when audio is toggled
+  // Pause/resume ambience, når lyden slås til/fra
   useEffect(() => {
     if (!ambienceAudioRef.current) return;
     
@@ -131,7 +131,7 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
     const ambienceFile = AMBIENCE_MAP[roomId];
     if (!ambienceFile) return;
 
-    // If already playing different track, fade out first
+    // Hvis der allerede afspilles et anden track, fade ud først
     if (ambienceAudioRef.current.src && !ambienceAudioRef.current.paused) {
       fadeOut(() => {
         if (ambienceAudioRef.current) {
@@ -142,7 +142,7 @@ export const AudioProvider = ({ children }: { children: ReactNode }) => {
         }
       });
     } else {
-      // Start fresh
+      // Start på ny
       ambienceAudioRef.current.src = ambienceFile;
       ambienceAudioRef.current.play().then(() => fadeIn()).catch(err => {
         console.log('Ambience playback failed:', err);

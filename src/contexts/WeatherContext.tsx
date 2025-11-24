@@ -17,17 +17,17 @@ export const useWeather = () => {
   return context;
 };
 
-// Map temperature to season
+// Map temperatur til årstid
 const getSeasonFromTemp = (temp: number): SeasonType => {
   if (temp < 15) return 'winter';
   if (temp >= 15 && temp <= 23) return 'all-year';
   return 'summer';
 };
 
-// Fetch weather data
+// Hent vejrdata
 const fetchWeatherData = async (): Promise<WeatherInfo | null> => {
   try {
-    // Step 1: Get user location via IP geolocation
+    // Step 1: Hent brugers placering via IP geolocation
     const geoResponse = await fetch('https://ipapi.co/json/');
     if (!geoResponse.ok) {
       console.warn('Geolocation fetch failed');
@@ -37,7 +37,7 @@ const fetchWeatherData = async (): Promise<WeatherInfo | null> => {
     const geoData: GeolocationResponse = await geoResponse.json();
     const { latitude, longitude, city } = geoData;
 
-    // Step 2: Get weather data from Open-Meteo
+    // Step 2: Hent vejrdata fra Open-Meteo
     const weatherResponse = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m`
     );
