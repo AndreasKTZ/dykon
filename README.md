@@ -275,7 +275,6 @@ function SeasonStep() {
 ### Aktuelle begrænsninger
 
 1. **Vejr API**
-   - Bruger IP-baseret geolocation (kræver ikke brugertilladelse)
    - Hvis API'erne fejler, vises ingen vejranbefaling
    - Afhænger af eksterne services (ipapi.co og Open-Meteo API)
 
@@ -302,12 +301,9 @@ function SeasonStep() {
 
 1. **Backend integration**
    - Dynamisk dynelager og priser
-   - Bruger konti og gemte præferencer
-   - Order/købs funktionalitet
 
 2. **Flere features**
    - Gem/del dine resultater via link
-   - Print funktion til resultatoversigt
    - Filtrer resultater efter pris, mærke, etc.
    - Sammenlign mere end 2 dyner samtidig
 
@@ -316,12 +312,7 @@ function SeasonStep() {
    - Andre nordiske sprog
    - Valutaomregning
 
-4. **Performance**
-   - Lazy loading af billeder
-   - Service worker for offline support
-   - Optimeret bundle størrelse
-
-5. **Analytics**
+4. **Analytics**
    - Sporing af populære valg
    - Conversion tracking
    - User journey insights
