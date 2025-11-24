@@ -2,8 +2,6 @@
 
 En interaktiv web-app til at hjælpe brugere med at finde den perfekte dyne baseret på deres præferencer og behov.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/W-XZzDATCI4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Tech stack
 
 - **React 19** - UI framework til at bygge brugergrænsefladen
