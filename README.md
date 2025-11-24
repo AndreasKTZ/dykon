@@ -2,6 +2,8 @@
 
 En interaktiv web-app til at hjælpe brugere med at finde den perfekte dyne baseret på deres præferencer og behov.
 
+https://github.com/user-attachments/assets/aa3abc5d-f697-4234-8e67-b4d7941f11c3
+
 ## Tech stack
 
 - **React 19** - UI framework til at bygge brugergrænsefladen
