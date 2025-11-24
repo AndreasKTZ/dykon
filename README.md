@@ -2,6 +2,8 @@
 
 En interaktiv web-app til at hjælpe brugere med at finde den perfekte dyne baseret på deres præferencer og behov.
 
+https://github.com/user-attachments/assets/aa3abc5d-f697-4234-8e67-b4d7941f11c3
+
 ## Tech stack
 
 - **React 19** - UI framework til at bygge brugergrænsefladen
@@ -162,7 +164,7 @@ Applikationen guider brugeren gennem 5 trin for at finde den perfekte dyne:
    - Vejrintegration viser automatisk anbefaling baseret på lokalt vejr
 
 6. **Trin 5: Budget og prioriteter**
-   - Budget slider fra Budget ($) til Luksus ($$$)
+   - Budget slider fra budget til luksus
    - Point fordeling (10 point) på: Komfort, Temperatur, Vedligehold, Materialer, Pris, Kvalitet
 
 7. **Resultater**
